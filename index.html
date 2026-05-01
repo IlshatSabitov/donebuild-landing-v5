@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DoneBuild · Speak the job. Get a priced estimate.</title>
+<meta name="description" content="Voice estimating, signed change orders, and ACH payments. Built for solo kitchen and bath remodelers. Trained on your jobs, not the internet's. $79/mo founding price." />
+<meta property="og:title" content="DoneBuild · Speak the job. Get a priced estimate." />
+<meta property="og:description" content="Voice estimating, signed change orders, and ACH payments. Built for solo kitchen and bath remodelers. Trained on your jobs, not the internet's." />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ───────────────── NAV ───────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="DoneBuild">
+      <span class="logo-mark">D</span>
+      <span>DoneBuild</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#savings">Savings</a>
+      <a href="#replace">Replaces</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="nav-spacer"></div>
+    <a href="#trial" class="btn btn-primary nav-cta">Start free trial →</a>
+  </div>
+</nav>
+
+<!-- ───────────────── HERO ───────────────── -->
+<section class="hero">
+  <div class="hero-glows" aria-hidden="true">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+  </div>
+
+  <div class="hero-inner">
+
+    <!-- Hero copy (above laptop) -->
+    <div class="hero-copy">
+      <div class="hero-pill">
+        <svg class="hero-pill-spark" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+        </svg>
+        <span>Voice estimating · trained on your jobs</span>
+      </div>
+      <h1 class="hero-h1">
+        Talk through the job.
+        <span class="dim">Get a priced estimate.</span>
+      </h1>
+      <p class="hero-sub">
+        <span class="hero-sub-text" id="heroSub">Open DoneBuild. Talk through the job.</span>
+      </p>
+      <div class="hero-legend">
+        <div class="hero-legend-item"><span class="dot" style="background:#1D9E75"></span><span>Saved prices</span></div>
+        <div class="hero-legend-item"><span class="dot" style="background:#3D5A7A"></span><span>Accepted work</span></div>
+        <div class="hero-legend-item"><span class="dot" style="background:#BA7517"></span><span>Local baseline</span></div>
+      </div>
+    </div>
+
+    <!-- LAPTOP -->
+    <div class="laptop-wrap">
+      <div class="laptop">
+        <div class="laptop-screen" role="img" aria-label="Live demo of DoneBuild turning a spoken kitchen remodel walkthrough into a priced estimate">
+
+          <!-- Browser chrome -->
+          <div class="chrome">
+            <div class="chrome-dots">
+              <span class="chrome-dot dot-r"></span>
+              <span class="chrome-dot dot-y"></span>
+              <span class="chrome-dot dot-g"></span>
+            </div>
+            <div class="chrome-spacer" aria-hidden="true"></div>
+            <button class="chrome-mute" id="muteBtn" type="button" aria-label="Hear the audio" aria-pressed="false">
+              <span class="chrome-mute-pulse" aria-hidden="true"></span>
+              <span class="chrome-mute-icon" id="muteIcon" aria-hidden="true">
+                <!-- speaker w/ slash (muted) by default -->
+                <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 6h2.2L8.5 3.4v9.2L5.2 10H3V6z" fill="currentColor"/>
+                  <path d="M11 6.2l3 3.6M14 6.2l-3 3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span id="muteLabel" class="chrome-mute-label">Hear it</span>
+            </button>
+          </div>
+
+          <!-- App nav -->
+          <div class="app-nav">
+            <div class="app-brand">
+              <span class="app-brand-mark">D</span>
+              <span class="app-brand-name">DoneBuild</span>
+            </div>
+            <div class="app-tabs">
+              <span class="app-tab">Dashboard</span>
+              <span class="app-tab">Jobs</span>
+              <span class="app-tab is-active">Estimates</span>
+              <span class="app-tab">Clients</span>
+            </div>
+            <div class="app-nav-spacer"></div>
+            <div class="app-nav-end">
+              <span class="app-help">Help</span>
+              <div class="app-avatar"></div>
+            </div>
+          </div>
+
+          <!-- STAGE -->
+          <div class="stage" id="stage">
+
+            <!-- ───────── SPEAK ───────── -->
+            <div class="surface surface-speak is-active" data-stage="speak">
+              <div class="stage-crumb">
+                <div>Estimates <span class="crumb-sep">›</span> New estimate <span class="crumb-sep">›</span> <span class="crumb-active">Describe</span></div>
+                <button class="stage-cancel" type="button">Cancel</button>
+              </div>
+              <h2 class="stage-h2">Describe the job</h2>
+              <div class="stage-sub">Speak naturally. You can edit the transcript before the draft is created.</div>
+
+              <div class="speak-grid">
+                <!-- Dark recording panel -->
+                <div class="speak-panel">
+                  <div class="wave is-live" id="wave" aria-hidden="true"></div>
+
+                  <div class="speak-timer" id="speakTimer">00:00</div>
+
+                  <div class="speak-status">
+                    <span class="pulse"></span>
+                    <span>Listening · pauses are fine</span>
+                  </div>
+
+                  <div class="speak-actions">
+                    <button class="speak-action" type="button">
+                      <svg width="9" height="9" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <rect x="3.5" y="3" width="2.5" height="8" fill="currentColor"/>
+                        <rect x="8" y="3" width="2.5" height="8" fill="currentColor"/>
+                      </svg>
+                      Pause
+                    </button>
+                    <button class="speak-action is-primary" type="button">
+                      <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      </svg>
+                      Done recording
+                    </button>
+                    <button class="speak-action is-quiet" type="button">Discard</button>
+                  </div>
+
+                  <div class="speak-transcript-wrap">
+                    <div class="speak-transcript-head">
+                      <span class="speak-transcript-label">Live transcript</span>
+                      <span class="speak-transcript-edit">Editable</span>
+                    </div>
+                    <div class="speak-transcript" id="transcript" aria-live="polite">
+                      <span class="speak-transcript-placeholder">Listening for the job description…</span><span class="speak-cursor"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trust panel -->
+                <div class="trust-stack">
+                  <div class="trust-card">
+                    <div class="trust-head">What we heard so far</div>
+
+                    <div class="trust-item" data-trust="job">
+                      <span class="trust-icon">
+                        <svg class="trust-icon-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                          <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <div class="trust-body">
+                        <div class="trust-label">Job type</div>
+                        <div class="trust-value">Kitchen remodel · Chen apartment</div>
+                      </div>
+                    </div>
+
+                    <div class="trust-item" data-trust="scope">
+                      <span class="trust-icon">
+                        <svg class="trust-icon-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                          <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <div class="trust-body">
+                        <div class="trust-label">Scope</div>
+                        <div class="trust-value">Demo cabinets &amp; counters</div>
+                      </div>
+                    </div>
+
+                    <div class="trust-item" data-trust="cabinets">
+                      <span class="trust-icon">
+                        <svg class="trust-icon-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                          <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <div class="trust-body">
+                        <div class="trust-label">Cabinets</div>
+                        <div class="trust-value">Shaker · maple finish</div>
+                      </div>
+                    </div>
+
+                    <div class="trust-item" data-trust="finish">
+                      <span class="trust-icon">
+                        <svg class="trust-icon-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                          <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <div class="trust-body">
+                        <div class="trust-label">Specs captured</div>
+                        <div class="trust-value">5 line items · ready to draft</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="privacy-card">
+                    <div class="privacy-title">Privacy</div>
+                    <div class="privacy-body">Raw audio is used only to create the transcript. Edits save with the estimate.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ───────── CLARIFY ───────── -->
+            <div class="surface surface-clarify" data-stage="clarify">
+              <div class="clarify-top">
+                <button class="clarify-back" type="button">
+                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                  Previous
+                </button>
+                <span class="clarify-pill">
+                  <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  Quick clarifications
+                </span>
+              </div>
+
+              <div class="clarify-grid">
+                <div class="clarify-card">
+                  <div class="clarify-card-head">
+                    <span class="clarify-card-kicker">A few quick questions</span>
+                    <div class="clarify-progress" aria-label="Question 3 of 3">
+                      <span class="clarify-prog-pip is-done"></span>
+                      <span class="clarify-prog-pip is-done"></span>
+                      <span class="clarify-prog-pip is-active"></span>
+                    </div>
+                  </div>
+                  <h2 class="clarify-q">Cabinet grade?</h2>
+                  <div class="clarify-q-sub">You said "shaker, maple" but not the grade. It changes the line total.</div>
+
+                  <div class="clarify-options" id="clarifyOptions">
+                    <button class="clarify-opt" data-opt="stock" type="button">
+                      <span class="opt-radio"></span>
+                      <span class="opt-body">
+                        <span class="opt-label">Stock</span>
+                        <span class="opt-price">· $420/LF</span>
+                        <span class="opt-sub">Big-box availability</span>
+                      </span>
+                      <span class="opt-arrow">→</span>
+                    </button>
+                    <button class="clarify-opt" data-opt="semi" type="button">
+                      <span class="opt-radio"></span>
+                      <span class="opt-body">
+                        <span class="opt-label">Semi-custom</span>
+                        <span class="opt-price">· $620/LF</span>
+                        <span class="opt-sub">Most common for K&amp;B</span>
+                      </span>
+                      <span class="opt-arrow">→</span>
+                    </button>
+                    <button class="clarify-opt" data-opt="custom" type="button">
+                      <span class="opt-radio"></span>
+                      <span class="opt-body">
+                        <span class="opt-label">Custom</span>
+                        <span class="opt-price">· $880/LF</span>
+                        <span class="opt-sub">Premium · longer lead</span>
+                      </span>
+                      <span class="opt-arrow">→</span>
+                    </button>
+                    <div class="clarify-other">
+                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                        <path d="M8.5 1.5L10.5 3.5L3.5 10.5L1 11L1.5 8.5L8.5 1.5Z" stroke="currentColor" stroke-width="1.2"/>
+                      </svg>
+                      Something else…
+                    </div>
+                  </div>
+
+                  <div class="clarify-foot">
+                    <span class="clarify-foot-note">
+                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                        <circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1"/>
+                        <path d="M6 4v2.5M6 8v0.3" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                      </svg>
+                      Auto-saved as you answer
+                    </span>
+                    <div class="clarify-foot-actions">
+                      <button class="btn-sec is-quiet" type="button">Skip this</button>
+                      <button class="btn-pri-app is-disabled" type="button">Build estimate →</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- So-far rail (mirrors trust panel) -->
+                <div class="trust-stack">
+                  <div class="trust-card">
+                    <div class="trust-head">So far</div>
+                    <div class="trust-item is-on">
+                      <span class="trust-icon">
+                        <svg class="trust-icon-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                          <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <div class="trust-body">
+                        <div class="trust-label">Job type</div>
+                        <div class="trust-value">Kitchen remodel</div>
+                      </div>
+                    </div>
+                    <div class="trust-item is-on">
+                      <span class="trust-icon">
+                        <svg class="trust-icon-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                          <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <div class="trust-body">
+                        <div class="trust-label">Scope</div>
+                        <div class="trust-value">Demo &amp; install · 5 items</div>
+                      </div>
+                    </div>
+                    <div class="trust-item is-on">
+                      <span class="trust-icon">
+                        <svg class="trust-icon-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                          <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <div class="trust-body">
+                        <div class="trust-label">Cabinets</div>
+                        <div class="trust-value">Shaker · maple</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ───────── DRAFTING ───────── -->
+            <div class="surface surface-draft" data-stage="draft">
+              <div class="stage-crumb">
+                <div>Estimate · #0233</div>
+                <div style="display:flex; gap:8px;">
+                  <button class="btn-sec" type="button">Back</button>
+                  <button class="btn-sec" type="button">Preview</button>
+                  <button class="btn-pri-app is-disabled" type="button">Continue to approval</button>
+                </div>
+              </div>
+              <h2 class="stage-h2" style="opacity:0.55;">Chen Apartment · Kitchen</h2>
+
+              <div class="draft-empty"></div>
+
+              <div class="draft-overlay">
+                <div class="draft-spark">
+                  <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  Drafting estimate
+                </div>
+                <div class="draft-h">Pulling from your saved prices…</div>
+                <div class="draft-sub">ZIP 90069 · semi-custom · 5 line items</div>
+
+                <div class="draft-checks" id="draftChecks">
+                  <div class="draft-check" data-step="0">
+                    <span class="draft-icon"><span class="draft-icon-num">1</span></span>
+                    <span>Scope captured · 5 line items</span>
+                  </div>
+                  <div class="draft-check" data-step="1">
+                    <span class="draft-icon"><span class="draft-icon-num">2</span></span>
+                    <span>Mid-grade pricing applied</span>
+                  </div>
+                  <div class="draft-check" data-step="2">
+                    <span class="draft-icon"><span class="draft-icon-num">3</span></span>
+                    <span>Local labor rates · ZIP 90069</span>
+                  </div>
+                  <div class="draft-check" data-step="3">
+                    <span class="draft-icon"><span class="draft-icon-num">4</span></span>
+                    <span>Margin guardrails checked</span>
+                  </div>
+                  <div class="draft-check" data-step="4">
+                    <span class="draft-icon"><span class="draft-icon-num">5</span></span>
+                    <span>Categorizing line items</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ───────── PRICED (REVEAL + LINGER) ───────── -->
+            <div class="surface surface-priced" data-stage="priced">
+              <div class="est-top">
+                <div>
+                  <div class="est-id">Estimate · #0233</div>
+                  <div class="est-job">Chen Apartment · Kitchen</div>
+                </div>
+                <div class="est-actions">
+                  <button class="btn-sec" type="button">Back</button>
+                  <button class="btn-sec" type="button">Preview</button>
+                  <button class="btn-pri-app" type="button">Send estimate
+                    <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M1 7L13 1L7 13L6 8L1 7Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="est-chips">
+                <span class="spark-pill">
+                  <svg width="9" height="9" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+                  </svg>
+                  Voice draft
+                </span>
+                <span class="mini-chip">Partial remodel</span>
+                <span class="mini-chip">≈110 sqft</span>
+                <span class="mini-chip">ZIP 90069</span>
+                <span class="mini-chip is-ok">Ready to send</span>
+              </div>
+
+              <div class="est-body">
+                <!-- Categories -->
+                <div class="est-col-left" id="catList">
+                  <div class="est-section-head">
+                    <span class="est-section-title">Description &amp; Pricing</span>
+                    <div class="est-legend">
+                      <span class="est-legend-item"><span class="est-legend-dot" style="background:#1D9E75"></span>From your pricebook</span>
+                      <span class="est-legend-item"><span class="est-legend-dot" style="background:#BA7517"></span>Local baseline</span>
+                    </div>
+                  </div>
+
+                  <!-- Demo & Prep -->
+                  <div class="cat-card" data-cat="demo" data-reveal="0">
+                    <div class="cat-head">
+                      <div class="cat-head-left">
+                        <svg class="cat-chev" viewBox="0 0 9 9" aria-hidden="true">
+                          <path d="M2 3.5L4.5 6L7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span class="cat-name">Demo &amp; Prep</span>
+                        <span class="cat-badge">3 items</span>
+                      </div>
+                      <div class="cat-head-right">
+                        <span class="cat-total">$3,200</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Cabinetry (expanded by default) -->
+                  <div class="cat-card is-expanded" data-cat="cabinetry" data-reveal="380">
+                    <div class="cat-head">
+                      <div class="cat-head-left">
+                        <svg class="cat-chev" viewBox="0 0 9 9" aria-hidden="true">
+                          <path d="M2 3.5L4.5 6L7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span class="cat-name">Cabinetry</span>
+                        <span class="cat-badge">2 items</span>
+                      </div>
+                      <div class="cat-head-right">
+                        <span class="cat-total">$14,020</span>
+                      </div>
+                    </div>
+                    <div class="cat-body">
+                      <table class="cat-table">
+                        <thead>
+                          <tr>
+                            <th>Item</th>
+                            <th class="t-c">Qty</th>
+                            <th class="t-c">Unit</th>
+                            <th class="t-r">Cost</th>
+                            <th class="t-r">Price</th>
+                            <th class="t-r">Total</th>
+                            <th class="t-r">Margin</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span class="cat-line-item">
+                                <span class="cat-line-source src-saved"></span>
+                                <span class="cat-line-text">Semi-custom shaker · maple</span>
+                              </span>
+                            </td>
+                            <td class="t-c">18</td>
+                            <td class="t-c">LF</td>
+                            <td class="t-r">$380</td>
+                            <td class="t-r cat-cell-price">$620</td>
+                            <td class="t-r cat-cell-total">$11,160</td>
+                            <td class="t-r cat-cell-margin">39%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span class="cat-line-item">
+                                <span class="cat-line-source src-saved"></span>
+                                <span class="cat-line-text">Cabinet install labor</span>
+                              </span>
+                            </td>
+                            <td class="t-c">18</td>
+                            <td class="t-c">LF</td>
+                            <td class="t-r">$95</td>
+                            <td class="t-r cat-cell-price">$165</td>
+                            <td class="t-r cat-cell-total">$2,970</td>
+                            <td class="t-r cat-cell-margin">42%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!-- Countertops -->
+                  <div class="cat-card" data-cat="counter" data-reveal="760">
+                    <div class="cat-head">
+                      <div class="cat-head-left">
+                        <svg class="cat-chev" viewBox="0 0 9 9" aria-hidden="true">
+                          <path d="M2 3.5L4.5 6L7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span class="cat-name">Countertops</span>
+                        <span class="cat-badge">2 items</span>
+                      </div>
+                      <div class="cat-head-right">
+                        <span class="cat-total">$5,400</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Backsplash -->
+                  <div class="cat-card is-expanded" data-cat="backsplash" data-reveal="1140">
+                    <div class="cat-head">
+                      <div class="cat-head-left">
+                        <svg class="cat-chev" viewBox="0 0 9 9" aria-hidden="true">
+                          <path d="M2 3.5L4.5 6L7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span class="cat-name">Backsplash</span>
+                        <span class="cat-badge">1 item</span>
+                        <span class="cat-updated-badge" id="bsUpdatedBadge" style="display:none">✓ Updated</span>
+                      </div>
+                      <div class="cat-head-right">
+                        <span class="cat-delta" id="bsDelta" style="display:none">+$420</span>
+                        <span class="cat-total" id="bsTotal">$2,800</span>
+                      </div>
+                    </div>
+                    <div class="cat-body">
+                      <table class="cat-table">
+                        <thead>
+                          <tr>
+                            <th>Item</th>
+                            <th class="t-c">Qty</th>
+                            <th class="t-c">Unit</th>
+                            <th class="t-r">Cost</th>
+                            <th class="t-r">Price</th>
+                            <th class="t-r">Total</th>
+                            <th class="t-r">Margin</th>
+                          </tr>
+                        </thead>
+                        <tbody id="bsRow">
+                          <tr>
+                            <td>
+                              <span class="cat-line-item">
+                                <span class="cat-line-source src-baseline"></span>
+                                <span class="cat-line-text" id="bsItemText">Ceramic subway tile · supply + install</span>
+                              </span>
+                            </td>
+                            <td class="t-c">32</td>
+                            <td class="t-c">sqft</td>
+                            <td class="t-r" id="bsCost">$42</td>
+                            <td class="t-r cat-cell-price" id="bsPrice">$87.50</td>
+                            <td class="t-r cat-cell-total" id="bsTotalCell">$2,800</td>
+                            <td class="t-r cat-cell-margin">52%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!-- Inline tile picker (linger) -->
+                      <div class="tile-picker" id="tilePicker" style="display:none">
+                        <div class="tile-picker-head">
+                          <span class="tile-picker-kicker">
+                            <svg width="10" height="10" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                              <path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+                            </svg>
+                            Choose tile
+                          </span>
+                          <span class="tile-picker-meta">Estimate updates instantly</span>
+                        </div>
+                        <div class="tiles">
+                          <div class="tile" id="tileCeramic">
+                            <span class="tile-swatch ceramic"></span>
+                            <div class="tile-info">
+                              <div class="tile-label">Ceramic</div>
+                              <div class="tile-price">$87.50/sqft</div>
+                            </div>
+                          </div>
+                          <div class="tile" id="tilePorcelain">
+                            <span class="tile-swatch porcelain"></span>
+                            <div class="tile-info">
+                              <div class="tile-label">Porcelain <span class="tile-delta">+$420</span></div>
+                              <div class="tile-price">$100.60/sqft</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Flooring -->
+                  <div class="cat-card" data-cat="flooring" data-reveal="1520">
+                    <div class="cat-head">
+                      <div class="cat-head-left">
+                        <svg class="cat-chev" viewBox="0 0 9 9" aria-hidden="true">
+                          <path d="M2 3.5L4.5 6L7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span class="cat-name">Flooring</span>
+                        <span class="cat-badge">1 item</span>
+                      </div>
+                      <div class="cat-head-right">
+                        <span class="cat-total">$1,728</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Plumbing & Electrical -->
+                  <div class="cat-card" data-cat="plumb" data-reveal="1900">
+                    <div class="cat-head">
+                      <div class="cat-head-left">
+                        <svg class="cat-chev" viewBox="0 0 9 9" aria-hidden="true">
+                          <path d="M2 3.5L4.5 6L7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span class="cat-name">Plumbing &amp; Electrical</span>
+                        <span class="cat-badge">3 items</span>
+                      </div>
+                      <div class="cat-head-right">
+                        <span class="cat-total">$5,200</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Paint & Finish -->
+                  <div class="cat-card" data-cat="paint" data-reveal="2280">
+                    <div class="cat-head">
+                      <div class="cat-head-left">
+                        <svg class="cat-chev" viewBox="0 0 9 9" aria-hidden="true">
+                          <path d="M2 3.5L4.5 6L7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span class="cat-name">Paint &amp; Finish</span>
+                        <span class="cat-badge">2 items</span>
+                      </div>
+                      <div class="cat-head-right">
+                        <span class="cat-total">$1,850</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Cleanup -->
+                  <div class="cat-card" data-cat="cleanup" data-reveal="2660">
+                    <div class="cat-head">
+                      <div class="cat-head-left">
+                        <svg class="cat-chev" viewBox="0 0 9 9" aria-hidden="true">
+                          <path d="M2 3.5L4.5 6L7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+                        </svg>
+                        <span class="cat-name">Cleanup</span>
+                        <span class="cat-badge">1 item</span>
+                      </div>
+                      <div class="cat-head-right">
+                        <span class="cat-total">$480</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Right column: summary -->
+                <div class="est-col-right">
+                  <div class="summary">
+                    <div class="summary-kicker">Estimate total</div>
+                    <div class="summary-total tnum" id="summaryTotal">$0</div>
+                    <div class="summary-sub">Built in 9.2s · margin 41%</div>
+
+                    <div class="summary-bar-wrap"><div class="summary-bar" id="summaryBar"></div></div>
+                    <div class="summary-bar-label">
+                      <span>$50,000 budget</span>
+                      <span class="summary-bar-pct" id="summaryPct">0%</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row"><span class="label">Subtotal</span><span class="value" id="sumSubtotal">$0</span></div>
+                    <div class="summary-row"><span class="label">Margin</span><span class="value">41%</span></div>
+                    <div class="summary-row"><span class="label">Saved prices</span><span class="value">8 of 13</span></div>
+                  </div>
+
+                  <div class="confirmed-card" id="confirmedCard" style="display:none">
+                    <span class="confirmed-icon">✓</span>
+                    <span class="confirmed-text">All choices confirmed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.stage -->
+
+        </div><!-- /.laptop-screen -->
+      </div><!-- /.laptop -->
+
+      <!-- Progress strip -->
+      <div class="progress-strip">
+        <div class="progress-labels">
+          <span class="progress-label" data-stage="speak">Listening</span>
+          <span class="progress-label" data-stage="clarify">Clarifying</span>
+          <span class="progress-label" data-stage="draft">Drafting</span>
+          <span class="progress-label" data-stage="reveal">Building</span>
+          <span class="progress-label" data-stage="priced">Priced</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="replay-row">
+          <button class="replay-btn" id="replayBtn" type="button">
+            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2.5 5.5a4.5 4.5 0 018-2.2M11.5 1v3.5h-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            Replay
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /.laptop-wrap -->
+
+  </div>
+</section>
+
+<!-- ───────────────── MOBILE HERO (≤900px) ───────────────── -->
+<section class="hero-mobile" id="heroMobile" aria-hidden="false">
+  <div class="m-glows" aria-hidden="true">
+    <div class="m-glow-1"></div>
+    <div class="m-glow-2"></div>
+  </div>
+
+  <div class="m-hero-inner">
+
+    <!-- Hero copy -->
+    <div class="m-hero-copy">
+      <div class="m-hero-pill">
+        <svg class="m-pill-spark" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+        </svg>
+        <span>AI Copilot · live in DoneBuild</span>
+      </div>
+      <h1 class="m-hero-h1">
+        From your voice<br/>
+        <span class="m-dim">to a priced estimate.</span>
+      </h1>
+      <p class="m-hero-sub"><span id="mHeroSub">Open DoneBuild. Talk through the job.</span></p>
+      <div class="m-hero-legend">
+        <div class="m-legend-item"><span class="m-dot" style="background:#1D9E75"></span><span>Saved prices</span></div>
+        <div class="m-legend-item"><span class="m-dot" style="background:#3D5A7A"></span><span>Accepted work</span></div>
+        <div class="m-legend-item"><span class="m-dot" style="background:#BA7517"></span><span>Local baseline</span></div>
+      </div>
+      <div class="m-hero-mute-row">
+        <button class="m-mute-btn" id="mMuteBtn" type="button" aria-label="Hear the audio" aria-pressed="false">
+          <span class="m-mute-pulse" aria-hidden="true"></span>
+          <span class="m-mute-icon" id="mMuteIcon" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+              <path d="M3 6h2.2L8.5 3.4v9.2L5.2 10H3V6z" fill="currentColor"/>
+              <path d="M11 6.2l3 3.6M14 6.2l-3 3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="m-mute-label" id="mMuteLabel">Tap for sound</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="m-phone-wrap">
+      <div class="m-phone">
+        <div class="m-phone-inner">
+
+          <!-- SCREEN: SPEAK (active during setup + speak stages) -->
+          <div class="m-screen is-active" data-screen="speak">
+            <div class="m-statusbar m-statusbar-dark">
+              <span class="m-time">9:41</span>
+              <div class="m-status-icons">
+                <svg width="16" height="11" viewBox="0 0 16 11" fill="none"><path d="M0.5 9c1.5-3 4-5 7.5-5s6 2 7.5 5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/><path d="M3 8c1-1.5 2.5-2.5 5-2.5s4 1 5 2.5" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="9" r="1" fill="#fff"/></svg>
+                <svg width="22" height="11" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2" stroke="#fff" stroke-opacity="0.6"/><rect x="2" y="2" width="14" height="7" rx="1" fill="#fff"/></svg>
+              </div>
+            </div>
+            <div class="m-speak-body">
+              <div class="m-speak-toprow">
+                <span class="m-speak-cancel">Cancel</span>
+                <span class="m-speak-step">1 of 4</span>
+              </div>
+              <div class="m-speak-mid">
+                <div class="m-listening-label">LISTENING</div>
+                <div class="m-wave" id="mWave"></div>
+                <div class="m-speak-timer" id="mSpeakTimer">0:00</div>
+                <div class="m-pauses-ok"><span class="m-rec-dot"></span>Pauses are fine</div>
+                <div class="m-transcript-card">
+                  <div class="m-transcript-label">Heard so far</div>
+                  <div class="m-transcript" id="mTranscript"><span class="m-transcript-placeholder">Listening for the job description…</span><span class="m-cursor"></span></div>
+                </div>
+                <!-- Inline trust ticks -->
+                <div class="m-trust-inline">
+                  <div class="m-trust-item" data-trust="job"><span class="m-trust-tick"></span><span class="m-trust-text">Kitchen remodel</span></div>
+                  <div class="m-trust-item" data-trust="layout"><span class="m-trust-tick"></span><span class="m-trust-text">Demo + shaker cabinets</span></div>
+                  <div class="m-trust-item" data-trust="size"><span class="m-trust-tick"></span><span class="m-trust-text">Maple, ≈30 LF</span></div>
+                  <div class="m-trust-item" data-trust="finish"><span class="m-trust-tick"></span><span class="m-trust-text">Quartz + subway tile</span></div>
+                </div>
+              </div>
+              <div class="m-speak-actions">
+                <button class="m-circle-btn"><svg width="13" height="13" viewBox="0 0 14 14"><rect x="3.5" y="3" width="2.5" height="8" fill="#fff"/><rect x="8" y="3" width="2.5" height="8" fill="#fff"/></svg></button>
+                <button class="m-done-btn">Done</button>
+                <button class="m-circle-btn"><svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M3 3L11 11M3 11L11 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCREEN: CLARIFY -->
+          <div class="m-screen" data-screen="clarify">
+            <div class="m-statusbar"><span class="m-time">9:41</span></div>
+            <div class="m-clarify-topbar">
+              <button class="m-iconbtn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8L10 12" stroke="#2D3338" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+              <span class="m-spark-pill"><svg width="9" height="9" viewBox="0 0 14 14" fill="none"><path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="#3D5A7A" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+            </div>
+            <div class="m-clarify-body">
+              <div class="m-clarify-toprow">
+                <span class="m-clarify-kicker">Quick clarifications</span>
+                <div class="m-clarify-progress"><div class="m-clarify-dashes"><span></span><span></span><span></span></div><span class="m-clarify-count">3/3</span></div>
+              </div>
+              <h2 class="m-clarify-h2">Cabinet grade?</h2>
+              <p class="m-clarify-sub">You said "shaker cabinets" — but not the grade.</p>
+              <div class="m-clarify-opts">
+                <div class="m-clarify-opt" data-opt="stock"><span class="m-radio"></span><div class="m-opt-text"><div class="m-opt-label">Stock</div><div class="m-opt-sub">Big-box availability · $420/LF</div></div></div>
+                <div class="m-clarify-opt" data-opt="semi"><span class="m-radio"></span><div class="m-opt-text"><div class="m-opt-label">Semi-custom</div><div class="m-opt-sub">Most common for K&amp;B · $620/LF</div></div></div>
+                <div class="m-clarify-opt" data-opt="custom"><span class="m-radio"></span><div class="m-opt-text"><div class="m-opt-label">Custom</div><div class="m-opt-sub">Premium, longer lead · $880/LF</div></div></div>
+                <div class="m-clarify-other"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L3.5 10.5L1 11L1.5 8.5L8.5 1.5Z" stroke="#9CA3AF" stroke-width="1.2"/></svg> Something else…</div>
+              </div>
+            </div>
+            <div class="m-clarify-actions">
+              <button class="m-skip-btn">Skip all</button>
+              <button class="m-build-btn" id="mClarifyBuild"><span class="m-build-text">Build estimate <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><span class="m-build-loading"><span class="m-spinner"></span>Building…</span></button>
+            </div>
+          </div>
+
+          <!-- SCREEN: DRAFT -->
+          <div class="m-screen" data-screen="draft">
+            <div class="m-statusbar"><span class="m-time">9:41</span></div>
+            <div class="m-draft-topbar"><span class="m-step">4 of 5</span></div>
+            <div class="m-draft-body">
+              <div class="m-draft-header">
+                <div class="m-draft-icon"><svg width="22" height="22" viewBox="0 0 14 14"><path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" fill="#fff"/></svg></div>
+                <div><div class="m-draft-title">Building your estimate</div><div class="m-draft-sub">This usually takes a few seconds.</div></div>
+              </div>
+              <div class="m-draft-steps">
+                <div class="m-draft-step"><span class="m-draft-bullet"></span><div class="m-draft-text"><div class="m-draft-step-title">Cleaning up the description</div><div class="m-draft-step-sub">Removed filler, normalized numbers</div></div></div>
+                <div class="m-draft-step"><span class="m-draft-bullet"></span><div class="m-draft-text"><div class="m-draft-step-title">Identifying line items</div><div class="m-draft-step-sub">Found 17 across 8 categories</div></div></div>
+                <div class="m-draft-step"><span class="m-draft-bullet"></span><div class="m-draft-text"><div class="m-draft-step-title">Matching saved prices</div><div class="m-draft-step-sub">12 items matched to pricebook</div></div></div>
+                <div class="m-draft-step"><span class="m-draft-bullet"></span><div class="m-draft-text"><div class="m-draft-step-title">Filling gaps with local baseline</div><div class="m-draft-step-sub">3 items, NYC</div></div></div>
+                <div class="m-draft-step"><span class="m-draft-bullet"></span><div class="m-draft-text"><div class="m-draft-step-title">Calculating totals</div></div></div>
+              </div>
+            </div>
+            <div class="m-draft-trust">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="2.5" y="5.5" width="7" height="5" rx="1" stroke="#3D5A7A" stroke-width="1.2"/><path d="M4 5.5V4a2 2 0 014 0v1.5" stroke="#3D5A7A" stroke-width="1.2"/></svg>
+              <span>Your pricebook is the source of truth. DoneBuild won't change saved prices without your approval.</span>
+            </div>
+          </div>
+
+          <!-- SCREEN: ESTIMATE -->
+          <div class="m-screen" data-screen="estimate">
+            <div class="m-statusbar"><span class="m-time">9:41</span></div>
+            <div class="m-est-topbar">
+              <button class="m-iconbtn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8L10 12" stroke="#2D3338" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+              <span class="m-est-title">Chen — Kitchen</span>
+              <span class="m-iconbtn"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="4" cy="9" r="1.4" fill="#2D3338"/><circle cx="9" cy="9" r="1.4" fill="#2D3338"/><circle cx="14" cy="9" r="1.4" fill="#2D3338"/></svg></span>
+            </div>
+            <div class="m-est-chips">
+              <span class="m-chip m-chip-draft"><svg width="8" height="8" viewBox="0 0 14 14" fill="none"><path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="#fff" stroke-width="1.4"/></svg>Draft</span>
+              <span class="m-chip">Partial</span>
+              <span class="m-chip">≈110 sqft</span>
+              <span class="m-chip m-chip-ok">$50k</span>
+            </div>
+            <div class="m-est-body">
+              <div class="m-cat-card" data-at="0"><div class="m-cat-row"><div class="m-cat-name"><svg class="m-chev" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="m-cat-label">Demo &amp; Prep</div><div class="m-cat-meta">3 items</div></div></div><div class="m-cat-total">$3,200</div></div></div>
+              <div class="m-cat-card is-hot" data-at="480"><div class="m-cat-row"><div class="m-cat-name"><svg class="m-chev m-chev-open" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="m-cat-label">Cabinetry</div><div class="m-cat-meta">2 items</div></div></div><div class="m-cat-total">$14,020</div></div><div class="m-cat-lines"><div class="m-line"><span class="m-source-dot" style="background:#1D9E75"></span><div class="m-line-text"><div class="m-line-item">Semi-custom shaker, 18 LF <svg width="10" height="10" viewBox="0 0 14 14" fill="none" style="vertical-align:middle"><path d="M2 7L5.5 10.5L12 3.5" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="m-line-qty">18 LF</div></div><span class="m-line-price">$11,160</span></div><div class="m-line"><span class="m-source-dot" style="background:#1D9E75"></span><div class="m-line-text"><div class="m-line-item">Install labor</div><div class="m-line-qty">18 LF</div></div><span class="m-line-price">$2,970</span></div></div></div>
+              <div class="m-cat-card" data-at="960"><div class="m-cat-row"><div class="m-cat-name"><svg class="m-chev" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="m-cat-label">Countertops</div><div class="m-cat-meta">2 items</div></div></div><div class="m-cat-total">$5,400</div></div></div>
+              <div class="m-cat-card" data-at="1440" id="mBackplashCard"><div class="m-cat-row"><div class="m-cat-name"><svg class="m-chev" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="m-cat-label">Backsplash</div><div class="m-cat-meta">1 item <span class="m-bs-updated" id="mBsUpdated">Updated</span></div></div></div><div class="m-cat-total-wrap"><span class="m-bs-delta" id="mBsDelta">+$420</span><span class="m-cat-total" id="mBsTotal">$2,800</span></div></div><div class="m-cat-lines"><div class="m-line"><span class="m-source-dot" style="background:#BA7517"></span><div class="m-line-text"><div class="m-line-item" id="mBsItem">Ceramic subway tile</div><div class="m-line-qty">32 sqft</div></div><span class="m-line-price" id="mBsPrice">$2,800</span></div><div class="m-tile-picker" id="mTilePicker"><div class="m-tile-head"><span class="m-tile-kicker"><svg width="9" height="9" viewBox="0 0 14 14" fill="none"><path d="M7 1.5L8.4 5.6L12.5 7L8.4 8.4L7 12.5L5.6 8.4L1.5 7L5.6 5.6L7 1.5Z" stroke="#3D5A7A" stroke-width="1.2"/></svg> Choose tile</span><span class="m-tile-meta">Updates instantly</span></div><div class="m-tile-grid"><div class="m-tile is-selected" id="mTileCeramic"><div class="m-tile-swatch m-tile-ceramic"></div><div class="m-tile-text"><div class="m-tile-label">Ceramic</div><div class="m-tile-price">$87.50/sqft</div></div></div><div class="m-tile" id="mTilePorcelain"><div class="m-tile-swatch m-tile-porcelain"></div><div class="m-tile-text"><div class="m-tile-label">Porcelain</div><div class="m-tile-price">$100.60/sqft <span class="m-tile-delta">+$420</span></div></div></div></div></div></div></div>
+              <div class="m-cat-card" data-at="1920"><div class="m-cat-row"><div class="m-cat-name"><svg class="m-chev" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="m-cat-label">Flooring</div><div class="m-cat-meta">1 item</div></div></div><div class="m-cat-total">$1,728</div></div></div>
+              <div class="m-cat-card" data-at="2400"><div class="m-cat-row"><div class="m-cat-name"><svg class="m-chev" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="m-cat-label">Plumbing &amp; Electrical</div><div class="m-cat-meta">3 items</div></div></div><div class="m-cat-total">$5,200</div></div></div>
+              <div class="m-cat-card" data-at="2880"><div class="m-cat-row"><div class="m-cat-name"><svg class="m-chev" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="m-cat-label">Paint &amp; Finish</div><div class="m-cat-meta">2 items</div></div></div><div class="m-cat-total">$1,850</div></div></div>
+              <div class="m-cat-card" data-at="3360"><div class="m-cat-row"><div class="m-cat-name"><svg class="m-chev" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/></svg><div><div class="m-cat-label">Cleanup</div><div class="m-cat-meta">1 item</div></div></div><div class="m-cat-total">$480</div></div></div>
+            </div>
+            <div class="m-est-footer">
+              <div class="m-est-total-row">
+                <div><div class="m-total-label">Total</div><div class="m-total-meta">On budget · <span id="mBudgetPctText"></span></div></div>
+                <div class="m-total-wrap"><span class="m-total-delta" id="mTotalDelta">+$420</span><span class="m-total-amount" id="mTotal">$0</span></div>
+              </div>
+              <div class="m-budget-track"><div class="m-budget-fill" id="mBudgetPct"></div></div>
+              <button class="m-send-btn" id="mSendBtn">Preview &amp; send <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+              <div class="m-building-btn" id="mBuildingBtn">Building estimate…</div>
+            </div>
+          </div>
+
+        </div><!-- /.m-phone-inner -->
+        <div class="m-notch"></div>
+      </div><!-- /.m-phone -->
+    </div><!-- /.m-phone-wrap -->
+
+    <!-- Progress strip -->
+    <div class="m-progress-strip">
+      <div class="m-prog-labels">
+        <span class="m-prog-label" data-stage="speak">Listening</span>
+        <span class="m-prog-label" data-stage="clarify">Clarifying</span>
+        <span class="m-prog-label" data-stage="draft">Drafting</span>
+        <span class="m-prog-label" data-stage="reveal">Building</span>
+        <span class="m-prog-label" data-stage="priced">Priced</span>
+      </div>
+      <div class="m-prog-track"><div class="m-prog-fill" id="mProgressFill"></div></div>
+      <div class="m-replay-row"><button class="m-replay-btn" id="mReplayBtn" type="button"><svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 5.5a4.5 4.5 0 018-2.2M11.5 1v3.5h-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Replay</button></div>
+    </div>
+
+  </div><!-- /.m-hero-inner -->
+</section>
+
+<!-- ───────────────── HOW (3-step) ───────────────── -->
+<section class="section section-light" id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">From the kitchen walk-through to the client's inbox</div>
+      <h2 class="section-h2">An estimate, signed, before your coffee gets cold.</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01</div>
+        <h3>Talk through the job.</h3>
+        <p>Walk the kitchen. Talk like you talk on the phone. "Shaker maple, semi-custom, quartz counter, the usual tile guy." No forms. No dropdowns. No "select category."</p>
+        <div class="how-tag">12s of speech to 5 priced line items</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02</div>
+        <h3>Priced from your own jobs.</h3>
+        <p>Numbers come from your last accepted estimates and your saved unit rates. Not generic AI. Not internet averages. Your prices, getting sharper every job you run.</p>
+        <div class="how-tag">Trained on your work, never silently changed</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03</div>
+        <h3>Sent for signature in two taps.</h3>
+        <p>Client signs on their phone. No app to download. No DocuSign account. No "create a password." You're back in the truck before they hit submit.</p>
+        <div class="how-tag">Card and ACH built in. Funded next business day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── SAVINGS ───────────────── -->
+<section class="section section-dark" id="savings">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">What that adds up to</div>
+      <h2 class="section-h2">An extra <span class="accent">$105,000</span> a year. Without picking up another job.</h2>
+      <p class="section-lede">Solo kitchen and bath crews lose 10 to 15 hours a week to estimates, chasing approvals, and arguing about scope. Here's what comes back to your calendar and your bank account.</p>
+    </div>
+    <div class="savings-grid">
+      <div class="save-card">
+        <div class="save-num tnum">$20,800</div>
+        <div class="save-label">Hours back</div>
+        <div class="save-meta">10+ hrs/week at $40/hr. One full day, every week, returned to you.</div>
+      </div>
+      <div class="save-card">
+        <div class="save-num tnum">$15,000</div>
+        <div class="save-label">Change orders you used to eat</div>
+        <div class="save-meta">Avg first CO on a remodel is $4,639. Unsigned equals unpaid.</div>
+      </div>
+      <div class="save-card">
+        <div class="save-num tnum">$70,000</div>
+        <div class="save-label">Bids you used to lose</div>
+        <div class="save-meta">Same-day estimate replies win 25% more jobs. The other guy emails his next morning.</div>
+      </div>
+      <div class="save-card is-total">
+        <div class="save-num is-big tnum">$105,000<span class="save-plus">+</span></div>
+        <div class="save-label">Year-one impact</div>
+        <div class="save-meta">For a solo or 1 to 5 person crew running 1 to 5 jobs at a time.</div>
+      </div>
+    </div>
+    <div class="payback">
+      <div class="payback-headline">
+        <div class="payback-eyebrow">The math, plainly</div>
+        <div class="payback-line">One extra job pays for the next <b class="payback-num">36 years</b>.</div>
+        <p class="payback-body">Average kitchen remodel: <b>$35,000</b>. Reply same-day, send a professional estimate, get it signed with a deposit. That one job covers DoneBuild for the next 36 years.</p>
+      </div>
+      <ul class="payback-stack">
+        <li><span class="payback-stack-num">~5 yrs</span><span class="payback-stack-text">One signed change order ($4,639) covers DoneBuild.</span></li>
+        <li><span class="payback-stack-num">3 decades</span><span class="payback-stack-text">One extra job a year, every year, and you never look back.</span></li>
+        <li><span class="payback-stack-num">~$27K/mo</span><span class="payback-stack-text">Founding users report this much in additional revenue.</span></li>
+      </ul>
+    </div>
+    <div class="savings-foot">
+      Sources: <a href="https://www.coconstruct.com/blog/change-order" rel="noopener">CoConstruct change-order benchmark</a> · industry remodeler surveys · public Stripe payment data · founding-user revenue self-reports.
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── NOT AI BAND ───────────────── -->
+<section class="section section-band">
+  <div class="container">
+    <div class="band-grid">
+      <div class="band-copy">
+        <div class="kicker">Built on your numbers</div>
+        <h2 class="band-h2">An estimating engine that learns <em>your</em> prices.</h2>
+        <p class="band-lede">Every estimate you accept teaches DoneBuild how you price work: your unit rates, your saved materials, your ZIP-level labor. It only gets sharper. Your data stays yours: never sold, never silently changed, exportable any time.</p>
+        <p class="band-lede">Voice is the fast path. Manual estimating is always one click away. Most contractors stop reaching for it after job three.</p>
+      </div>
+      <div class="band-pillars">
+        <div class="band-pillar">
+          <div class="band-pillar-num">Your data</div>
+          <div class="band-pillar-label">Your prices and history live in your account. Export or delete any time.</div>
+        </div>
+        <div class="band-pillar">
+          <div class="band-pillar-num">Gets smarter</div>
+          <div class="band-pillar-label">Every accepted job tunes the numbers closer to how <em>you</em> price.</div>
+        </div>
+        <div class="band-pillar">
+          <div class="band-pillar-num">Voice optional</div>
+          <div class="band-pillar-label">Talk through it or type it line-by-line, same engine, same result.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── BUILT WITH YOU, WEEKLY ───────────────── -->
+<section class="section weekly">
+  <div class="container">
+    <div class="weekly-head">
+      <div class="weekly-kicker">Built with you, weekly</div>
+      <h2 class="weekly-h2">DoneBuild ships every week.</h2>
+      <p class="weekly-lede">A look at what's queued. Founding 100 sees it first, and shapes what lands.</p>
+    </div>
+    <div class="chip-strip">
+      <span class="chip" data-status="build"><span class="chip-dot"></span>QuickBooks sync <span class="chip-status">In build</span></span>
+      <span class="chip" data-status="next"><span class="chip-dot"></span>SMS delivery <span class="chip-status">Next</span></span>
+      <span class="chip" data-status="design"><span class="chip-dot"></span>Margin &amp; profit tracking <span class="chip-status">In design</span></span>
+      <span class="chip" data-status="design"><span class="chip-dot"></span>Selections &amp; allowances <span class="chip-status">In design</span></span>
+      <span class="chip" data-status="design"><span class="chip-dot"></span>In-app notifications <span class="chip-status">In design</span></span>
+      <span class="chip" data-status="design"><span class="chip-dot"></span>Follow-ups <span class="chip-status">In design</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── REPLACE ───────────────── -->
+<section class="section section-light" id="replace">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">All the apps you'll cancel</div>
+      <h2 class="section-h2">One workflow. Five fewer logins.</h2>
+      <p class="section-lede">The average owner-operator pays $200 to $300 a month spread across Excel, DocuSign, Buildertrend or Joist, QuickBooks, and Venmo. And still scribbles change orders on the back of a receipt. DoneBuild does the whole flow, end to end, for $79.</p>
+    </div>
+    <div class="replace-table">
+      <div class="replace-row is-head">
+        <div></div>
+        <div>Today</div>
+        <div>With DoneBuild</div>
+      </div>
+      <div class="replace-row">
+        <div class="rr-label">Build estimate</div>
+        <div class="rr-old">Excel · 2 to 3 hrs</div>
+        <div class="rr-new">Voice · 9 sec</div>
+      </div>
+      <div class="replace-row">
+        <div class="rr-label">Get approval</div>
+        <div class="rr-old">DocuSign · $25/mo · 1 to 2 days</div>
+        <div class="rr-new">One-tap link · same day</div>
+      </div>
+      <div class="replace-row">
+        <div class="rr-label">Change order</div>
+        <div class="rr-old">"Texted you about it"</div>
+        <div class="rr-new">Signed in 2 minutes</div>
+      </div>
+      <div class="replace-row">
+        <div class="rr-label">Get paid</div>
+        <div class="rr-old">Check · 7 to 14 days</div>
+        <div class="rr-new">Card or ACH · next day</div>
+      </div>
+      <div class="replace-row">
+        <div class="rr-label">Stay organized</div>
+        <div class="rr-old">5 apps · 3 logins · 2 hrs/week reconciling</div>
+        <div class="rr-new">One link, one client, zero reconciling</div>
+      </div>
+      <div class="replace-row is-total">
+        <div class="rr-label">Total monthly cost</div>
+        <div class="rr-old">$200 to $300+ · 5 tools</div>
+        <div class="rr-new">$79 · all-in</div>
+      </div>
+    </div>
+    <div class="replace-time-math">
+      <div class="replace-time-math-left">
+        Add up the hours per week: <b>2 to 3 hrs</b> per estimate, <b>1 to 2 days</b> chasing approvals, <b>2 hrs</b> reconciling tools. That's <b>10 to 15 hours a week</b> on admin alone.
+      </div>
+      <div class="replace-time-math-right">DoneBuild: about 30 min/week</div>
+    </div>
+    <div class="replace-foot">Comparison based on publicly listed plans for Excel, DocuSign, Buildertrend, Joist, JobTread, and QuickBooks as of 2026.</div>
+  </div>
+</section>
+
+<!-- ───────────────── CHANGE ORDERS ───────────────── -->
+<section class="section section-deeper">
+  <div class="container">
+    <div class="co-grid">
+      <div class="co-copy">
+        <div class="kicker">Change orders</div>
+        <h2 class="section-h2">"We never agreed to that." <span class="accent">Gone forever.</span></h2>
+        <div class="co-headline-stat">
+          <div class="co-headline-stat-num">$4,639</div>
+          <div class="co-headline-stat-label"><b>Average first change order</b> on a residential remodel. Unsigned, that's money you eat. Roughly 35% of remodel jobs go over budget on undocumented changes alone.</div>
+        </div>
+        <p class="section-lede">DoneBuild sends a signed, timestamped change order in two minutes, before any new work starts. No more arguments. No more "I thought that was included."</p>
+        <ul class="co-bullets">
+          <li>Signed before the next swing of the hammer</li>
+          <li>Job total auto-updates. No spreadsheet recalc, no math mistakes.</li>
+          <li>Timestamped paper trail with IP. Defensible if it ever escalates.</li>
+          <li>Client signs on their phone. No app, no PDF, no DocuSign account.</li>
+        </ul>
+        <a href="#trial" class="btn btn-primary btn-lg">Start free trial →</a>
+      </div>
+      <div class="co-mockup">
+        <div class="chrome">
+          <div class="chrome-dots">
+            <span class="chrome-dot dot-r"></span>
+            <span class="chrome-dot dot-y"></span>
+            <span class="chrome-dot dot-g"></span>
+          </div>
+        </div>
+        <div class="co-body">
+          <div class="co-row">
+            <div>
+              <div class="co-title">Change Order #3</div>
+              <div class="co-sub">Chen Apartment · Kitchen</div>
+            </div>
+            <div class="co-status">Awaiting signature</div>
+          </div>
+          <div class="co-line"><span class="co-line-label"><span class="co-dot" style="background:#1D9E75"></span>Backsplash upgrade, Porcelain</span><span class="amt tnum">+$1,800</span></div>
+          <div class="co-line"><span class="co-line-label"><span class="co-dot" style="background:#3D5A7A"></span>Under-cabinet LED lighting</span><span class="amt tnum">+$650</span></div>
+          <div class="co-total"><span class="label">Added to job</span><span class="amt-big tnum">+$2,450</span></div>
+          <button class="co-send" type="button">Send for signature →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── GET PAID ───────────────── -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Get paid</div>
+      <h2 class="section-h2">From "the check is in the mail" to <span class="accent">funded overnight.</span></h2>
+      <p class="section-lede">About 60% of small contractors get paid late on most jobs. DoneBuild collects card or ACH the moment the estimate is signed.</p>
+    </div>
+    <div class="paid-flow">
+      <div class="paid-step">
+        <div class="paid-step-num">1</div>
+        <div class="paid-step-body">
+          <h4>Estimate becomes invoice</h4>
+          <p>One click. Send by email. No client login required.</p>
+        </div>
+      </div>
+      <div class="paid-step">
+        <div class="paid-step-num">2</div>
+        <div class="paid-step-body">
+          <h4>Card or ACH</h4>
+          <p>Stripe powered. No Venmo screenshots. No chasing checks.</p>
+        </div>
+      </div>
+      <div class="paid-step">
+        <div class="paid-step-num">3</div>
+        <div class="paid-step-body">
+          <h4>Funded next business day</h4>
+          <p>Money in your bank. Job marked paid. Move on.</p>
+        </div>
+      </div>
+    </div>
+    <div class="paid-trust">
+      <span><b>Stripe</b> · powered</span>
+      <span><b>PCI</b> · compliant</span>
+      <span><b>SSL</b> · encrypted</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── WHY NOT JUST USE X ───────────────── -->
+<section class="section section-band">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Honest comparison</div>
+      <h2 class="section-h2">Why not just use what everyone else uses?</h2>
+      <p class="section-lede">If Excel, Joist, or Buildertrend solved this, you wouldn't be reading this page. Here's why each one breaks down for owner-operator kitchen and bath remodelers.</p>
+    </div>
+    <div class="whynot-grid">
+      <div class="whynot-card">
+        <div class="whynot-card-head">
+          <div class="whynot-card-name">Why not Excel?</div>
+          <span class="whynot-card-tag is-x">Free, until it isn't</span>
+        </div>
+        <div class="whynot-card-body">It works for the first estimate. Then your second change order shows up verbally, you forget to update the sheet, and you eat $4,639. Excel doesn't track approvals, doesn't collect signatures, and doesn't get paid.</div>
+        <div class="whynot-card-foot">DoneBuild signs, tracks, and collects in one flow</div>
+      </div>
+      <div class="whynot-card">
+        <div class="whynot-card-head">
+          <div class="whynot-card-name">Why not Joist?</div>
+          <span class="whynot-card-tag">Wrong shape</span>
+        </div>
+        <div class="whynot-card-body">Built for handymen running $500 jobs. Form-driven, dropdown-heavy, and the change order workflow is "type it up again." Your $40K kitchen remodel doesn't fit a $13/mo handyman tool.</div>
+        <div class="whynot-card-foot">DoneBuild is built for remodels, not service calls</div>
+      </div>
+      <div class="whynot-card">
+        <div class="whynot-card-head">
+          <div class="whynot-card-name">Why not Buildertrend or JobTread?</div>
+          <span class="whynot-card-tag">Too much</span>
+        </div>
+        <div class="whynot-card-body">$200 to $400/mo for crew scheduling, GPS tracking, time clocks, and 30 features your two-person crew will never open. Buildertrend literally markets "10 hours of training videos" as a benefit.</div>
+        <div class="whynot-card-foot">DoneBuild is the 5 things you actually do, $79/mo</div>
+      </div>
+      <div class="whynot-card">
+        <div class="whynot-card-head">
+          <div class="whynot-card-name">Why not QuickBooks?</div>
+          <span class="whynot-card-tag is-x">Wrong tool</span>
+        </div>
+        <div class="whynot-card-body">QuickBooks is accounting. It doesn't write estimates, doesn't collect e-signatures, and doesn't handle change orders. Keep it for your books. DoneBuild handles everything that happens before the deposit hits.</div>
+        <div class="whynot-card-foot">QuickBooks sync coming soon. They're complementary.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── PRICING ───────────────── -->
+<section class="section section-light" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Pricing</div>
+      <h2 class="section-h2">Pay for what you use. <span class="accent">Nothing else.</span></h2>
+      <p class="section-lede">Buildertrend, JobTread, Jobber, Joist, Markate. They charge $99 to $399 a month for crew scheduling, GPS tracking, time clocks, marketplaces, and twenty features a two-person crew will never open. DoneBuild is just the five things you actually do.</p>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-left">
+        <div class="founding-badge">Founding 100 · lifetime price locked</div>
+        <h3 class="pricing-tier">Solo Pro</h3>
+        <p class="pricing-tier-sub">Built for owner-operator kitchen and bath remodelers running <b>$150K to $1M</b> in annual revenue. 1 to 5 person crews. 1 to 5 active jobs at a time.</p>
+        <div class="pricing-features-head">Everything is unlimited:</div>
+        <ul class="pricing-features">
+          <li>Unlimited voice estimates, trained on your jobs</li>
+          <li>Unlimited change orders and signed e-approvals</li>
+          <li>Unlimited card and ACH payments via Stripe</li>
+          <li>Unlimited clients, jobs, and invoices</li>
+          <li>Pays for itself with one signed change order.</li>
+          <li>Direct line to the founder. Text Tommy anytime.</li>
+          <li>24/7 access · real human · real fast</li>
+        </ul>
+      </div>
+      <div class="pricing-right">
+        <div class="price">
+          <span class="price-amt">$79</span>
+          <span class="price-per">/month</span>
+        </div>
+        <div class="price-equiv">≈ less than 90 minutes of billable work</div>
+        <a href="#trial" class="btn btn-primary-dark btn-lg btn-block">Start free trial →</a>
+        <ul class="price-trust">
+          <li>14-day free trial</li>
+          <li>30-day money-back guarantee</li>
+          <li>Cancel anytime</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pricing-foot">
+      After the first 100 users, pricing moves to <b>$129/mo</b>. Your $79 stays locked in <b>for life</b>, even when the price doubles.
+    </div>
+    <div class="pricing-not-for">
+      <b>Not the right fit if:</b> you're running 50+ jobs a year, need crew scheduling and GPS tracking, or do mostly commercial work. You'll outgrow DoneBuild fast. Try JobTread instead.
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── FAQ ───────────────── -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Questions you'd ask Tommy at the bar</div>
+      <h2 class="section-h2">Honest answers.</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Is this just ChatGPT in a wrapper?</summary>
+        <p>No. DoneBuild is a custom estimating engine that runs on your accepted jobs plus ZIP-level material and labor data. Nothing about your pricing leaves your account, and nothing in your estimates trains anyone else's model. The more jobs you run through it, the more it sounds like you wrote it. You own the data. Leave any time, take it with you.</p>
+      </details>
+      <details>
+        <summary>Will I have to learn new software?</summary>
+        <p>No. If you can leave a voicemail, you can use DoneBuild. First-time users send their first signed estimate in under 90 seconds. No onboarding call. No manual. No YouTube tutorials. If you get stuck, text the founder.</p>
+      </details>
+      <details>
+        <summary>Do I have to use voice?</summary>
+        <p>No. Build any estimate by hand. Voice is just the fast path. Manual estimating is always one click away. Most users stop reaching for it after job three, but it's there forever.</p>
+      </details>
+      <details>
+        <summary>What's the catch with $79/month?</summary>
+        <p>You're one of the first 100 users helping prove this out. In exchange you get the price for life. After 100 users it goes to $129/mo. Your $79 doesn't move, even when the public price doubles. No tier games. No "but only on annual." No asterisks.</p>
+      </details>
+      <details>
+        <summary>Will the voice mishear me on a noisy jobsite?</summary>
+        <p>It handles ambient noise well (saws, music, traffic) and ignores filler words automatically. If a line item gets garbled, you can edit it inline before sending. Every transcript is logged so you can audit anything.</p>
+      </details>
+      <details>
+        <summary>Where do the prices come from?</summary>
+        <p>Your saved unit rates plus ZIP-level material pricing pulled from contractor supply networks. The first time you run an estimate, you confirm your defaults. After that, prices match your actual jobs. Nothing changes silently.</p>
+      </details>
+      <details>
+        <summary>Do my clients need an account or app?</summary>
+        <p>No. They click a link, review, sign, and pay. No password, no download. Works on any phone or laptop browser.</p>
+      </details>
+      <details>
+        <summary>Does this replace QuickBooks?</summary>
+        <p>No. Keep QuickBooks for accounting. DoneBuild handles estimate, approval, change order, invoice, paid. QuickBooks sync is on the roadmap.</p>
+      </details>
+      <details>
+        <summary>Is this really built for solo operators?</summary>
+        <p>Yes. The whole product is shaped by feedback from solo and 1 to 5 person kitchen and bath crews. No bloat. No project-management theatrics. If you're running 50+ jobs a year, you'll outgrow it. That's fine.</p>
+      </details>
+      <details>
+        <summary>What if it doesn't work for me?</summary>
+        <p>30-day money-back guarantee, no questions. That's enough time to run 1 to 3 real jobs through it. If it doesn't pay for itself in your first job, you shouldn't be paying for it.</p>
+      </details>
+      <details>
+        <summary>What's not in DoneBuild yet?</summary>
+        <p>QuickBooks sync is in build. SMS delivery is next. Margin and profit tracking, selections and allowances, in-app notifications, and follow-ups are in design. Founding 100 ships first. If something you need isn't on the list, text Tommy. Odds are it's already on the wall, just not yet on the page.</p>
+      </details>
+      <details>
+        <summary>Have a crew or a showroom?</summary>
+        <p>The crew tier is being built right now with a small group of founding showroom partners. Locked-in pricing and the same direct line to the founder for the first ones in. Text Tommy if that's you.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── FINAL CTA ───────────────── -->
+<section class="section section-dark final-cta" id="trial">
+  <div class="container">
+    <div class="kicker">Stop typing</div>
+    <h2 class="section-h2">Stop typing estimates. Start <span class="accent">talking</span> them.</h2>
+    <p class="section-lede">If you can leave a voicemail, you can run DoneBuild. First-time users send their first signed estimate in under 90 seconds. No training. No setup. No onboarding call.</p>
+    <p class="final-price-line">14-day free trial · $79/mo founding price · locked in for life.</p>
+    <a href="#" class="btn btn-primary btn-xl" style="margin-top:8px">Start free trial →</a>
+    <div class="final-trust">
+      <span>14-day free trial</span><span>·</span>
+      <span>30-day money-back</span><span>·</span>
+      <span>Cancel anytime</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── FOOTER ───────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#">
+          <span class="logo-mark">D</span>
+          <span>DoneBuild</span>
+        </a>
+        <p class="foot-tag">Built for solo kitchen &amp; bath remodelers.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#how">How it works</a>
+        <a href="#savings">Savings</a>
+        <a href="#replace">Replaces</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="foot-meta">
+        <span>© 2026 DoneBuild</span>
+        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Audio (14.4s mono mp3 of Tommy's actual walkthrough) -->
+<audio id="heroAudio" preload="auto" playsinline>
+  <source src="assets/hero-voice.mp3" type="audio/mpeg" />
+</audio>
+
+<script src="film.js"></script>
+<script src="film-mobile.js"></script>
+<script>
+  // Wire mobile mute button to shared #heroAudio + sync with desktop mute state.
+  (function(){
+    var audio = document.getElementById('heroAudio');
+    var mBtn = document.getElementById('mMuteBtn');
+    var mIcon = document.getElementById('mMuteIcon');
+    var mLabel = document.getElementById('mMuteLabel');
+    if (!audio || !mBtn) return;
+    function render(){
+      var muted = audio.muted || audio.paused;
+      mBtn.setAttribute('aria-pressed', String(!muted));
+      mBtn.classList.toggle('is-on', !muted);
+      if (mIcon) {
+        mIcon.innerHTML = muted
+          ? '<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 6h2.2L8.5 3.4v9.2L5.2 10H3V6z" fill="currentColor"/><path d="M11 6.2l3 3.6M14 6.2l-3 3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>'
+          : '<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 6h2.2L8.5 3.4v9.2L5.2 10H3V6z" fill="currentColor"/><path d="M10.5 4.6c1.1 1 1.1 2.8 0 3.8M12.7 2.5c2.4 2.1 2.4 5.7 0 7.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>';
+      }
+      if (mLabel) mLabel.textContent = muted ? 'Tap for sound' : 'Sound on';
+    }
+    mBtn.addEventListener('click', function(){
+      try {
+        if (audio.paused) { audio.muted = false; audio.play().catch(function(){}); }
+        else { audio.muted = !audio.muted; }
+      } catch(e){}
+      render();
+    });
+    audio.addEventListener('play', render);
+    audio.addEventListener('pause', render);
+    audio.addEventListener('volumechange', render);
+    render();
+  })();
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" - the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only - we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match - so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari - a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back - without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them - external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="transform:translate(-${scrollX}px,-${scrollY}px);transform-origin:top left">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+</script></body>
+</html>
