@@ -2746,17 +2746,29 @@ html, body {
   overflow-x: hidden !important;
 }
 
-/* Force the embed wrapper and shell to fill the entire viewport width */
+/* Force the embed wrapper and shell to fill the entire viewport width.
+   IMPORTANT: do NOT zero padding/margin on #db-shell > * — those are
+   the v5 sections (.hero, .savings-band, etc.) which need their own
+   horizontal padding to render cards correctly. Only neutralize the
+   wrappers themselves. */
 body > .w-embed,
 .w-embed,
-#db-shell,
-#db-shell > * {
+#db-shell {
   width: 100% !important;
   max-width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+/* For direct children of #db-shell, only force full width — keep their
+   intrinsic padding intact. */
+#db-shell > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 /* If Webflow injected a body wrapper / page wrapper, blow it open.
