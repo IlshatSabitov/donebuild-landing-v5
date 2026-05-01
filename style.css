@@ -2759,13 +2759,18 @@ body > .w-embed,
   padding-right: 0 !important;
 }
 
-/* If Webflow injected a body wrapper / page wrapper, blow it open */
-body > div:first-child:not(#db-shell),
-.page-wrapper,
-.main-wrapper,
-[class*="container"],
-[class*="wrapper"] {
+/* If Webflow injected a body wrapper / page wrapper, blow it open.
+   Only target Webflow's own wrappers, NOT v5's .container / .wrapper classes. */
+body > div.page-wrapper,
+body > div.main-wrapper,
+body > .w-layout-blockcontainer,
+body > .w-container,
+body > .w-page-wrapper,
+body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"]) {
   max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* Each v5 section should be edge-to-edge */
@@ -2780,10 +2785,9 @@ body > div:first-child:not(#db-shell),
   margin-right: 0 !important;
 }
 
-/* Ensure backgrounds extend to viewport edge inside any constrained parent */
+/* The embed wrapper uses display:contents so #db-shell lays out as body's child directly */
 #db-shell {
   display: block;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
   position: relative;
 }
