@@ -2731,3 +2731,59 @@ p { margin: 0; }
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ============================================ */
+/* Webflow embed full-bleed overrides           */
+/* ============================================ */
+
+/* Reset Webflow's default body styles */
+html, body { 
+  margin: 0 !important; 
+  padding: 0 !important; 
+  background: #060709 !important; 
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Force the embed wrapper and shell to fill the entire viewport width */
+body > .w-embed,
+.w-embed,
+#db-shell,
+#db-shell > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* If Webflow injected a body wrapper / page wrapper, blow it open */
+body > div:first-child:not(#db-shell),
+.page-wrapper,
+.main-wrapper,
+[class*="container"],
+[class*="wrapper"] {
+  max-width: 100% !important;
+}
+
+/* Each v5 section should be edge-to-edge */
+#db-shell section,
+#db-shell .nav,
+#db-shell .footer,
+#db-shell .hero,
+#db-shell .hero-mobile {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Ensure backgrounds extend to viewport edge inside any constrained parent */
+#db-shell {
+  display: block;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
