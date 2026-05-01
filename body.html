@@ -41,8 +41,23 @@
   #db-shell .save-num, #db-shell .save-num.is-big { color: #fff !important; }
   #db-shell .save-label { color: rgba(255,255,255,0.85) !important; }
   #db-shell .save-meta { color: rgba(255,255,255,0.50) !important; }
-  /* Ensure the .container in any section retains its intended layout */
-  #db-shell .section .container { max-width: 1200px !important; margin: 0 auto !important; padding: 0 24px !important; width: auto !important; }
+  /* Ensure the .container in any section retains its intended layout AND has
+     no background bleeding through from Webflow's default .container styles. */
+  #db-shell .container, #db-shell .section .container, #db-shell .nav-inner {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    width: auto !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+  /* Belt and suspenders: nuke any background on Webflow's .container variants */
+  #db-shell .w-container, #db-shell .w-layout-blockcontainer {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
 </style>
 
 <!-- ───────────────── NAV ───────────────── -->
