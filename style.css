@@ -93,7 +93,12 @@ p { margin: 0; }
 .tnum { font-variant-numeric: tabular-nums; }
 
 /* Container */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  background: transparent;
+}
 
 /* ─── UTILITY: BUTTONS ─────────────────────────────────────────────────── */
 .btn {
@@ -3242,8 +3247,16 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 }
 
 /* Support pages for Founder Note, Contact, Terms, and Privacy. */
+#db-shell {
+  min-height: 100vh;
+  background: var(--bg-deep);
+}
+#db-shell .container,
+#db-shell .nav-inner {
+  background: transparent !important;
+}
 .support-page {
-  background: var(--page);
+  background: var(--bg-deep);
   color: var(--ink-1);
 }
 .support-page .nav {
@@ -3251,12 +3264,14 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 }
 .support-main {
   min-height: 70vh;
+  background: var(--bg-deep);
 }
 .support-hero {
-  padding: 92px 0 52px;
+  padding: 96px 0 74px;
   background: var(--bg-deep);
   color: #fff;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 .support-container {
   max-width: 820px !important;
@@ -3277,19 +3292,21 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   margin: 0 auto;
 }
 .support-section {
-  padding: 72px 0 92px;
+  padding: 78px 0 96px;
+  background: linear-gradient(180deg, #FAF8F2 0%, #F4F1EA 100%);
+  color: var(--ink-1);
 }
 .support-stack {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 .support-card {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--r-xl);
-  padding: 28px 30px;
-  box-shadow: 0 8px 24px rgba(40, 30, 18, 0.04);
+  padding: 30px 32px;
+  box-shadow: 0 14px 36px rgba(40, 30, 18, 0.06);
 }
 .support-card h2 {
   font-size: 20px;
@@ -3315,10 +3332,14 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 }
 @media (max-width: 720px) {
   .support-hero {
-    padding: 70px 0 42px;
+    padding: 72px 0 48px;
+  }
+  .support-hero h1 {
+    font-size: 34px;
+    line-height: 1.08;
   }
   .support-section {
-    padding: 48px 0 64px;
+    padding: 52px 0 68px;
   }
   .support-card {
     padding: 22px 20px;
