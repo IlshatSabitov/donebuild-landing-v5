@@ -2803,3 +2803,293 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   width: 100%;
   position: relative;
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   V4 ADDITIONS — qualifier band, objection table, post-animation caption
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ─── QUALIFIER BAND ──────────────────────────────────────────────────── */
+.section-qualifier {
+  padding: 96px 0;
+}
+.qualifier-head {
+  max-width: 820px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.qualifier-head .kicker { color: var(--cop-ink); }
+.qualifier-head .section-h2 {
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  color: var(--ink-1);
+  margin-bottom: 18px;
+}
+.qualifier-hat-lede {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.qualifier-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.qualifier-col {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  padding: 28px 32px;
+  box-shadow: 0 4px 14px rgba(40, 30, 18, 0.04);
+}
+.qualifier-col-head {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.qualifier-yes .qualifier-col-head { color: var(--ok-ink); }
+.qualifier-no .qualifier-col-head { color: var(--ink-3); }
+
+.qualifier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.qualifier-list li {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+}
+.qualifier-list li::before {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.qualifier-list-yes li::before {
+  content: "✓";
+  background: var(--ok-bg);
+  color: var(--ok-ink);
+  border: 1px solid var(--ok-line);
+}
+.qualifier-list-no li::before {
+  content: "×";
+  background: rgba(20, 23, 26, 0.04);
+  color: var(--ink-3);
+  border: 1px solid var(--line);
+}
+.qualifier-list li b {
+  color: var(--ink-1);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .section-qualifier { padding: 64px 0; }
+  .qualifier-head { margin-bottom: 32px; }
+  .qualifier-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .qualifier-col { padding: 22px 24px; }
+  .qualifier-hat-lede { font-size: 15px; }
+}
+
+/* ─── OBJECTION TABLE ─────────────────────────────────────────────────── */
+.section-objections .section-head { max-width: 760px; }
+.objection-table {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(40, 30, 18, 0.06),
+              0 2px 8px rgba(40, 30, 18, 0.03);
+}
+.objection-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 20px 28px;
+  border-top: 1px solid var(--line-soft);
+  position: relative;
+  transition: background 0.15s ease;
+}
+.objection-row:first-child { border-top: none; }
+.objection-row:not(.is-head):hover {
+  background: rgba(29, 158, 117, 0.03);
+}
+.objection-row > div:first-child {
+  padding-right: 20px;
+  position: relative;
+}
+.objection-row > div:first-child::after {
+  content: "";
+  position: absolute;
+  top: -16px;
+  bottom: -16px;
+  right: 0;
+  width: 1px;
+  background: var(--line-soft);
+}
+.objection-row > div:last-child {
+  padding-left: 20px;
+}
+
+.objection-row.is-head {
+  padding-top: 18px;
+  padding-bottom: 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  border-bottom: 1px solid var(--line);
+}
+.objection-row.is-head > div:last-child { color: var(--cop-ink); }
+.objection-row.is-head > div:first-child::after { top: 8px; bottom: 8px; }
+
+.obj-old {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+.obj-new {
+  font-size: 14.5px;
+  color: var(--ink-1);
+  font-weight: 600;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.obj-new::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--ok);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+@media (max-width: 720px) {
+  .objection-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 18px 22px;
+  }
+  .objection-row.is-head { display: none; }
+  .objection-row > div:first-child {
+    padding-right: 0;
+  }
+  .objection-row > div:first-child::after { display: none; }
+  .objection-row > div:last-child {
+    padding-left: 0;
+  }
+  .obj-old {
+    font-size: 11px;
+    color: var(--ink-4);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .obj-old::before {
+    content: "Expected: ";
+    color: var(--ink-5);
+  }
+  .obj-new { font-size: 14px; }
+}
+
+/* ─── POST-ANIMATION CAPTION (desktop hero) ────────────────────────────── */
+.laptop-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 22px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.62);
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+  text-align: center;
+}
+.laptop-caption .cap-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: #5EE3B5;
+  flex-shrink: 0;
+  animation: pulseDot 2s infinite;
+}
+@media (max-width: 720px) {
+  .laptop-caption {
+    font-size: 12px;
+    margin-top: 16px;
+  }
+}
+
+/* ─── HERO H1 — accommodate longer two-line headline ───────────────────── */
+/* The new pain-led H1 is longer than the old one. Cap line-length and
+   tighten the size on tablet/desktop so it doesn't sprawl. */
+.hero-h1 {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+}
+.hero-h1 .dim {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.5em;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 740px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 720px) {
+  .hero-h1 { font-size: 28px; line-height: 1.15; }
+  .hero-h1 .dim {
+    font-size: 0.62em;
+    margin-top: 10px;
+    line-height: 1.45;
+  }
+}
+
+/* Mobile hero H1 — same treatment for the m-hero */
+.m-hero-h1 {
+  font-size: clamp(26px, 7vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+}
+.m-hero-h1 .m-dim {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.62em;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}

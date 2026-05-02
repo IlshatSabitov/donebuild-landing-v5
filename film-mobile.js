@@ -93,7 +93,7 @@
   };
 
   const SUBHEADS = {
-    setup:   "Open DoneBuild. Talk through the job.",
+    setup:   "This is what 22 seconds with DoneBuild looks like.",
     speak:   "She's describing the job at the table…",
     clarify: "One small thing wasn't clear.",
     draft:   "Pulling from her saved prices.",
