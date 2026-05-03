@@ -147,11 +147,11 @@
 
   const SUBHEADS = {
     setup:   "This is what 22 seconds with DoneBuild looks like.",
-    speak:   "You're describing the job at the table…",
+    speak:   "",
     clarify: "One small thing wasn't clear.",
     draft:   "Pulling from your saved prices.",
     reveal:  "Categorizing line items.",
-    linger:  "Done. $43,199 — ready to send.",
+    linger:  "Done. $43,199. Ready to send.",
   };
 
   // Reveal cascade values (cumulative subtotals; * 1.0888 multiplier matches JSX)
@@ -195,11 +195,16 @@
   function setStage(name) {
     if (name === lastStage) return;
     lastStage = name;
-    if (heroSubM && SUBHEADS[name]) {
-      heroSubM.textContent = SUBHEADS[name];
-      heroSubM.style.animation = "none";
-      void heroSubM.offsetHeight;
-      heroSubM.style.animation = "mFadeUp 320ms ease-out";
+    if (heroSubM && Object.prototype.hasOwnProperty.call(SUBHEADS, name)) {
+      const nextSubhead = SUBHEADS[name];
+      const subheadWrap = heroSubM.parentElement;
+      heroSubM.textContent = nextSubhead;
+      if (subheadWrap) subheadWrap.classList.toggle("is-empty", !nextSubhead);
+      if (nextSubhead) {
+        heroSubM.style.animation = "none";
+        void heroSubM.offsetHeight;
+        heroSubM.style.animation = "mFadeUp 320ms ease-out";
+      }
     }
     const progMap = {
       setup: null, speak: "speak", clarify: "clarify",

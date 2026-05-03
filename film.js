@@ -153,7 +153,7 @@
   // Hero subhead per stage
   const SUBHEADS = {
     setup:   "This is what 22 seconds with DoneBuild looks like.",
-    speak:   "You're describing the job at the table…",
+    speak:   "",
     clarify: "One small thing wasn't clear.",
     draft:   "Pulling from your saved prices.",
     reveal:  "Categorizing line items.",
@@ -211,13 +211,18 @@
     });
 
     // Hero subhead
-    if (heroSub && SUBHEADS[stageName]) {
-      heroSub.textContent = SUBHEADS[stageName];
-      heroSub.style.animation = "none";
-      // Force reflow to restart animation
-      // eslint-disable-next-line no-unused-expressions
-      heroSub.offsetHeight;
-      heroSub.style.animation = "fadeUp 320ms ease-out";
+    if (heroSub && Object.prototype.hasOwnProperty.call(SUBHEADS, stageName)) {
+      const nextSubhead = SUBHEADS[stageName];
+      const subheadWrap = heroSub.parentElement;
+      heroSub.textContent = nextSubhead;
+      if (subheadWrap) subheadWrap.classList.toggle("is-empty", !nextSubhead);
+      if (nextSubhead) {
+        heroSub.style.animation = "none";
+        // Force reflow to restart animation
+        // eslint-disable-next-line no-unused-expressions
+        heroSub.offsetHeight;
+        heroSub.style.animation = "fadeUp 320ms ease-out";
+      }
     }
 
     // Progress label highlight
