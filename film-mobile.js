@@ -83,8 +83,12 @@
     { audioStart: 17.82, audioEnd: 19.12, text: "recessed lighting and paint." },
   ];
   const CLEANUP_TOKENS = [
-    { start: 0.62, end: 1.28, text: "Uh," },
+    { start: 0.62, end: 1.28, text: "Uh,", revealDuration: 0.18 },
   ];
+
+  function clamp(n, min, max) {
+    return Math.max(min, Math.min(max, n));
+  }
 
   function buildTranscriptTokens(phrases) {
     const tokens = [];
@@ -95,6 +99,7 @@
       words.forEach((word, index) => {
         tokens.push({
           start: phrase.audioStart + slot * index + Math.min(0.08, slot * 0.35),
+          revealDuration: clamp(word.length * 0.028, 0.12, Math.min(0.38, slot * 0.82)),
           text: word,
         });
       });
@@ -104,13 +109,24 @@
 
   const TRANSCRIPT_TOKENS = buildTranscriptTokens(PHRASES);
 
+  function revealToken(token, audioElapsedS) {
+    if (audioElapsedS < token.start) return "";
+    const duration = token.revealDuration || 0.16;
+    const progress = clamp((audioElapsedS - token.start) / duration, 0, 1);
+    const visibleChars = Math.max(1, Math.ceil(token.text.length * progress));
+    return token.text.slice(0, visibleChars);
+  }
+
   function getLiveTranscript(audioElapsedS) {
     const words = [];
     CLEANUP_TOKENS.forEach((token) => {
-      if (audioElapsedS >= token.start && audioElapsedS < token.end) words.push(token.text);
+      if (audioElapsedS >= token.start && audioElapsedS < token.end) {
+        words.push(revealToken(token, audioElapsedS));
+      }
     });
     TRANSCRIPT_TOKENS.forEach((token) => {
-      if (audioElapsedS >= token.start) words.push(token.text);
+      const rendered = revealToken(token, audioElapsedS);
+      if (rendered) words.push(rendered);
     });
     return words.join(" ");
   }
