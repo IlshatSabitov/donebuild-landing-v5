@@ -21,6 +21,8 @@ const requiredMain = [
   'How a job moves through DoneBuild',
   'Walk-through Tuesday',
   'Deposit Wednesday',
+  'Estimate sent by magic link',
+  'The client opens it on phone or laptop and signs without an app.',
   'You eat <b>$1,800</b>',
   'Watching the contractor cave',
   'Claim founding spot',
@@ -48,6 +50,8 @@ const forbiddenMain = [
   'DoneBuild is the one tool that handles estimates, signed change orders, and payments. Built for solo kitchen and bath remodelers.',
   "You're describing the job at the table",
   'This is for you if',
+  'Client signs on phone',
+  'One tap. No app, no DocuSign, no password.',
   'Contractor eats <b>$1,800</b>',
 ];
 const requiredPages = [

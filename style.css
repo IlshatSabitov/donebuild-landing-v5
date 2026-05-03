@@ -4911,8 +4911,30 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   .qualifier-bd-head {
     margin-bottom: 30px;
   }
+  .qualifier-bd-head .section-h2 {
+    max-width: 345px;
+    font-size: clamp(28px, 9vw, 38px);
+    line-height: 1.13;
+  }
   .qualifier-bd-lede {
+    max-width: 320px;
     font-size: 15px;
+    text-align: center;
+  }
+  .qualifier-bd-mark-green {
+    display: block;
+    max-width: 100%;
+    margin: 3px auto 0;
+    white-space: normal;
+  }
+  .qualifier-bd-mark-green::after {
+    display: none;
+  }
+  .qualifier-bd-mark-green > span {
+    background: linear-gradient(transparent 58%, rgba(159, 225, 203, 0.66) 58%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 0.02em;
   }
   .qualifier-bd-strip {
     padding: 16px 18px;
@@ -5164,6 +5186,7 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   flex: 1;
   min-height: 50px;
   padding: 7px 12px;
+  overflow: hidden;
   border: 0.5px solid rgba(255, 255, 255, 0.28);
   border-radius: 14px;
   color: #fff;
@@ -5173,26 +5196,50 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 }
 .co-r7-input-copy::after {
   content: "";
-  display: inline-block;
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  display: block;
   width: 1.5px;
   height: 13px;
-  margin-left: 2px;
   background: #fff;
-  vertical-align: -2px;
-  animation: coR7Blink 1s steps(1) infinite;
+  animation: coR7Blink 1s steps(1) infinite, coR7CursorTrack 15.6s linear infinite;
 }
 .co-r7-rage,
 .co-r7-comply {
   position: absolute;
-  inset: 7px 12px auto;
+  top: 7px;
+  left: 12px;
+  right: 12px;
   opacity: 0;
 }
 .co-r7-rage {
-  animation: coR7RageText 15.6s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  animation: coR7RageShell 15.6s linear infinite;
+}
+.co-r7-rage span,
+.co-r7-comply {
+  display: block;
+  width: 0;
+  max-width: max-content;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.co-r7-rage span:nth-child(1) {
+  animation: coR7RageLine1 15.6s steps(20, end) infinite;
+}
+.co-r7-rage span:nth-child(2) {
+  animation: coR7RageLine2 15.6s steps(22, end) infinite;
+}
+.co-r7-rage span:nth-child(3) {
+  animation: coR7RageLine3 15.6s steps(9, end) infinite;
 }
 .co-r7-comply {
   font-weight: 500;
-  animation: coR7ComplyText 15.6s ease-in-out infinite;
+  animation: coR7ComplyText 15.6s steps(24, end) infinite;
 }
 .co-r7-home {
   width: 110px;
@@ -5206,14 +5253,38 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
-@keyframes coR7RageText {
-  0%, 16%, 64%, 100% { opacity: 0; }
-  20%, 52% { opacity: 1; }
-  58% { opacity: 0.35; }
+@keyframes coR7CursorTrack {
+  0%, 12%, 61%, 64%, 100% { transform: translate(0, 0); opacity: 1; }
+  22%, 28% { transform: translate(118px, 0); }
+  38%, 48% { transform: translate(129px, 15px); }
+  52%, 58% { transform: translate(54px, 30px); }
+  78%, 94% { transform: translate(124px, 0); }
+  96%, 100% { opacity: 0; }
+}
+@keyframes coR7RageShell {
+  0%, 11%, 61%, 100% { opacity: 0; }
+  12%, 58% { opacity: 1; }
+}
+@keyframes coR7RageLine1 {
+  0%, 12% { width: 0; }
+  24%, 50% { width: 20ch; }
+  60%, 100% { width: 0; }
+}
+@keyframes coR7RageLine2 {
+  0%, 24% { width: 0; }
+  38%, 52% { width: 22ch; }
+  60%, 100% { width: 0; }
+}
+@keyframes coR7RageLine3 {
+  0%, 38% { width: 0; }
+  48%, 54% { width: 9ch; }
+  60%, 100% { width: 0; }
 }
 @keyframes coR7ComplyText {
-  0%, 62%, 100% { opacity: 0; }
-  68%, 92% { opacity: 1; }
+  0%, 64%, 100% { width: 0; opacity: 0; }
+  65% { width: 0; opacity: 1; }
+  78%, 94% { width: 24ch; opacity: 1; }
+  96% { width: 24ch; opacity: 0; }
 }
 .co-r7-result {
   display: flex;
@@ -5411,5 +5482,12 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   }
   .co-r7-rage {
     opacity: 1;
+  }
+  .co-r7-rage span {
+    width: auto;
+  }
+  .co-r7-comply,
+  .co-r7-input-copy::after {
+    display: none;
   }
 }
