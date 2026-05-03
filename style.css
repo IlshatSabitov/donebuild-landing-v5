@@ -3345,3 +3345,506 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
     padding: 22px 20px;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   HANDOFF FINALS — qualifier, pricebook, reviews, comparison, mobile hero
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ─── B: Qualifier accent bars and mirrored check/X treatment ─────────── */
+.section-qualifier .qualifier-grid {
+  gap: 20px;
+}
+.section-qualifier .qualifier-col {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 0;
+}
+.section-qualifier .qualifier-col::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: var(--ok);
+}
+.section-qualifier .qualifier-no::before {
+  background: var(--danger);
+}
+.section-qualifier .qualifier-col-head,
+.section-qualifier .qualifier-list {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+.section-qualifier .qualifier-col-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  margin-bottom: 20px;
+  letter-spacing: 0.16em;
+}
+.section-qualifier .qualifier-col-head::before {
+  content: "✓";
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 99px;
+  background: var(--ok-bg);
+  color: var(--ok);
+  border: 1px solid var(--ok-line);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.section-qualifier .qualifier-no .qualifier-col-head {
+  color: #8B1F1F;
+}
+.section-qualifier .qualifier-no .qualifier-col-head::before {
+  content: "×";
+  background: #FCE8E8;
+  color: var(--danger);
+  border-color: #F2B8B8;
+}
+.section-qualifier .qualifier-list {
+  padding-bottom: 30px;
+  gap: 14px;
+}
+.section-qualifier .qualifier-list li {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  color: var(--ink-2);
+}
+.section-qualifier .qualifier-list li::before {
+  left: 0;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+}
+.section-qualifier .qualifier-list-no li::before {
+  background: #FCE8E8;
+  color: var(--danger);
+  border-color: #F2B8B8;
+}
+
+/* ─── C: Live pricebook panel ─────────────────────────────────────────── */
+.section-pricebook .pricebook-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr);
+  gap: 58px;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.pricebook-copy .band-lede {
+  max-width: 560px;
+}
+.pricebook-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 30px;
+}
+.pricebook-trust-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 15px 14px;
+  box-shadow: 0 4px 14px rgba(40, 30, 18, 0.035);
+}
+.pricebook-trust-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--ink-4);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pricebook-trust-icon {
+  color: var(--ok);
+  font-size: 14px;
+  line-height: 1;
+}
+.pricebook-trust-copy {
+  color: var(--ink-2);
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.pricebook-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 54px rgba(40, 30, 18, 0.10),
+              0 4px 14px rgba(40, 30, 18, 0.04);
+}
+.pricebook-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 20px;
+  background: var(--card-tint);
+  border-bottom: 1px solid var(--line);
+}
+.pricebook-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 800;
+}
+.pricebook-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--ok);
+  box-shadow: 0 0 0 0 rgba(29, 158, 117, 0.35);
+  animation: pricebookPulse 1.8s ease-out infinite;
+}
+.pricebook-updated {
+  color: var(--ink-4);
+  font-size: 11px;
+  font-weight: 600;
+}
+.pricebook-panel-body {
+  padding: 20px;
+}
+.pricebook-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.pricebook-stat-num {
+  color: var(--ink-1);
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 800;
+}
+.pricebook-stat-label {
+  color: var(--ink-3);
+  font-size: 14px;
+}
+.pricebook-stat-badge {
+  margin-left: auto;
+  padding: 4px 8px;
+  border-radius: 99px;
+  background: var(--ok-bg);
+  color: var(--ok-ink);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pricebook-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pricebook-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--card-tint);
+}
+.pricebook-item span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+.pricebook-item strong {
+  color: var(--ink-1);
+  font-size: 13px;
+}
+.pricebook-item em {
+  padding: 3px 6px;
+  border-radius: 6px;
+  background: var(--ok-bg);
+  color: var(--ok-ink);
+  font-size: 10px;
+  line-height: 1;
+  font-style: normal;
+  font-weight: 800;
+}
+.pricebook-item em.is-stable {
+  background: var(--line-soft);
+  color: var(--ink-4);
+}
+.pricebook-panel-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+}
+.pricebook-panel-foot span {
+  color: var(--ink-4);
+}
+.pricebook-panel-foot strong {
+  color: var(--ok);
+}
+@keyframes pricebookPulse {
+  0% { box-shadow: 0 0 0 0 rgba(29, 158, 117, 0.35); }
+  70% { box-shadow: 0 0 0 8px rgba(29, 158, 117, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(29, 158, 117, 0); }
+}
+
+/* ─── D: Metric-led review cards ──────────────────────────────────────── */
+.section-reviews-v3 {
+  background: #F0EDE3;
+  color: var(--ink-1);
+}
+.section-reviews-v3 .section-head {
+  max-width: 780px;
+  margin-bottom: 48px;
+}
+.review-rating-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 7px 12px;
+  border-radius: 99px;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 800;
+}
+.review-stars {
+  display: inline-flex;
+  color: #E5A823;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+.section-reviews-v3 .review-grid {
+  gap: 20px;
+  max-width: 1040px;
+}
+.section-reviews-v3 .review-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 34px rgba(40, 30, 18, 0.07),
+              0 2px 8px rgba(40, 30, 18, 0.03);
+}
+.review-metric-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--ok-bg);
+  border-bottom: 1px solid var(--ok-line);
+}
+.review-metric {
+  color: var(--ok-ink);
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+.review-metric-label {
+  margin-top: 5px;
+  color: rgba(8, 80, 65, 0.72);
+  font-size: 11px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.review-body {
+  padding: 24px;
+}
+.section-reviews-v3 .review-quote {
+  position: relative;
+  margin: 0;
+  padding-top: 24px;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.section-reviews-v3 .review-quote::before {
+  content: "“";
+  position: absolute;
+  top: -9px;
+  left: 0;
+  color: rgba(29, 158, 117, 0.25);
+  font-size: 58px;
+  line-height: 1;
+  font-weight: 850;
+}
+.section-reviews-v3 .review-author {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.section-reviews-v3 .review-author strong {
+  font-size: 14px;
+}
+.section-reviews-v3 .review-author span {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.section-reviews-v3 .review-author em {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--line-soft);
+  color: var(--ink-3);
+  font-size: 10px;
+  line-height: 1;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── G: Honest comparison 3x2 grid ───────────────────────────────────── */
+.whynot-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1120px;
+  gap: 16px;
+}
+.whynot-card {
+  display: flex;
+  flex-direction: column;
+}
+.whynot-card-body {
+  flex: 1;
+}
+.whynot-card-tag.is-neutral {
+  background: var(--line-soft);
+  color: var(--ink-3);
+  border-color: var(--line-strong);
+}
+@media (max-width: 980px) {
+  .whynot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ─── H: Mobile hero phone size and spacing ───────────────────────────── */
+@media (max-width: 900px) {
+  .hero-mobile {
+    padding: 48px 0 52px;
+  }
+  .m-hero-inner {
+    max-width: 420px;
+    padding: 0 20px;
+  }
+  .m-hero-copy {
+    margin-bottom: 20px;
+  }
+  .m-hero-h1 {
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+  }
+  .m-hero-sub {
+    margin-bottom: 12px;
+  }
+  .m-hero-legend {
+    margin-bottom: 12px;
+  }
+  .m-hero-mute-row {
+    margin-top: 0;
+  }
+  .m-phone-wrap {
+    margin: 20px 0 0;
+  }
+  .m-phone {
+    width: 240px;
+    height: 510px;
+    max-height: none;
+    aspect-ratio: auto;
+    border-radius: 36px;
+    padding: 6px;
+  }
+  .m-phone-inner,
+  .m-screen {
+    border-radius: 30px;
+  }
+  .m-notch {
+    top: 6px;
+    width: 80px;
+    height: 18px;
+    border-radius: 0 0 16px 16px;
+  }
+  .m-progress-strip {
+    padding: 20px 0 0;
+  }
+  .m-prog-labels {
+    gap: 8px;
+    justify-content: center;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 760px) {
+  .section-qualifier .qualifier-col-head,
+  .section-qualifier .qualifier-list {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+  .section-qualifier .qualifier-col-head {
+    margin-top: 22px;
+  }
+  .section-qualifier .qualifier-list {
+    padding-bottom: 24px;
+  }
+  .section-pricebook .pricebook-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .pricebook-trust-grid {
+    grid-template-columns: 1fr;
+  }
+  .pricebook-panel-foot {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pricebook-item {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .pricebook-item em {
+    grid-column: 2;
+  }
+  .whynot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 390px) {
+  .m-phone {
+    width: 232px;
+    height: 493px;
+  }
+  .m-prog-labels {
+    gap: 6px;
+    font-size: 9px;
+  }
+}

@@ -94,9 +94,9 @@
 
   const SUBHEADS = {
     setup:   "This is what 22 seconds with DoneBuild looks like.",
-    speak:   "She's describing the job at the table…",
+    speak:   "You're describing the job at the table…",
     clarify: "One small thing wasn't clear.",
-    draft:   "Pulling from her saved prices.",
+    draft:   "Pulling from your saved prices.",
     reveal:  "Categorizing line items.",
     linger:  "Done. $43,199 — ready to send.",
   };
