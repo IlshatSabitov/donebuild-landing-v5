@@ -72,16 +72,53 @@
 
   // ─── DATA — same real PHRASES as desktop ────────────────────────────
   const PHRASES = [
-    { audioStart: 1.08,  text: "All right." },
-    { audioStart: 2.06,  text: "Kitchen remodel for the Chen apartment." },
-    { audioStart: 6.42,  text: "Demo the existing cabinets and counters," },
-    { audioStart: 8.46,  text: "install shaker cabinets," },
-    { audioStart: 10.28, text: "go with maple," },
-    { audioStart: 11.72, text: "quartz countertops about thirty linear feet," },
-    { audioStart: 14.96, text: "subway tile backsplash," },
-    { audioStart: 16.44, text: "new sink and faucet," },
-    { audioStart: 17.82, text: "recessed lighting and paint." },
+    { audioStart: 1.08,  audioEnd: 1.56,  text: "All right." },
+    { audioStart: 2.06,  audioEnd: 5.02,  text: "Kitchen remodel for the Chen apartment." },
+    { audioStart: 6.42,  audioEnd: 8.36,  text: "Demo the existing cabinets and counters," },
+    { audioStart: 8.46,  audioEnd: 10.02, text: "install shaker cabinets," },
+    { audioStart: 10.28, audioEnd: 11.18, text: "go with maple," },
+    { audioStart: 11.72, audioEnd: 14.72, text: "quartz countertops about thirty linear feet," },
+    { audioStart: 14.96, audioEnd: 16.28, text: "subway tile backsplash," },
+    { audioStart: 16.44, audioEnd: 17.46, text: "new sink and faucet," },
+    { audioStart: 17.82, audioEnd: 19.12, text: "recessed lighting and paint." },
   ];
+  const CLEANUP_TOKENS = [
+    { start: 0.62, end: 1.28, text: "Uh," },
+  ];
+
+  function buildTranscriptTokens(phrases) {
+    const tokens = [];
+    phrases.forEach((phrase) => {
+      const words = phrase.text.match(/\S+/g) || [];
+      const duration = Math.max(0.2, phrase.audioEnd - phrase.audioStart);
+      const slot = duration / Math.max(1, words.length);
+      words.forEach((word, index) => {
+        tokens.push({
+          start: phrase.audioStart + slot * index + Math.min(0.08, slot * 0.35),
+          text: word,
+        });
+      });
+    });
+    return tokens;
+  }
+
+  const TRANSCRIPT_TOKENS = buildTranscriptTokens(PHRASES);
+
+  function getLiveTranscript(audioElapsedS) {
+    const words = [];
+    CLEANUP_TOKENS.forEach((token) => {
+      if (audioElapsedS >= token.start && audioElapsedS < token.end) words.push(token.text);
+    });
+    TRANSCRIPT_TOKENS.forEach((token) => {
+      if (audioElapsedS >= token.start) words.push(token.text);
+    });
+    return words.join(" ");
+  }
+
+  function scrollTranscriptToEnd() {
+    if (!transcriptEl || !transcriptEl.parentElement) return;
+    transcriptEl.parentElement.scrollTop = transcriptEl.parentElement.scrollHeight;
+  }
 
   const audioSToFilmMs = (s) => SPEAK_START + (s / AUDIO_RATE) * 1000;
 
@@ -176,15 +213,14 @@
       transcriptEl.innerHTML = '<span class="m-transcript-placeholder">Listening for the job description…</span><span class="m-cursor"></span>';
       return;
     }
-    let revealed = "";
-    for (const p of PHRASES) {
-      const filmMs = audioSToFilmMs(p.audioStart);
-      if (elapsedMs >= filmMs) revealed += (revealed ? " " : "") + p.text;
-    }
+    const audioElapsedS = ((elapsedMs - SPEAK_START) / 1000) * AUDIO_RATE;
+    const revealed = getLiveTranscript(audioElapsedS);
     if (!revealed) {
       transcriptEl.innerHTML = '<span class="m-transcript-placeholder">Listening for the job description…</span><span class="m-cursor"></span>';
     } else {
-      transcriptEl.innerHTML = `${revealed}<span class="m-cursor"></span>`;
+      transcriptEl.innerHTML = '<span class="m-transcript-text"></span><span class="m-cursor"></span>';
+      transcriptEl.firstChild.textContent = revealed;
+      scrollTranscriptToEnd();
     }
   }
 

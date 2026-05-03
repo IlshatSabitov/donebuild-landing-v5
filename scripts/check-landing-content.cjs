@@ -9,6 +9,8 @@ const requiredMain = [
   'Revamp Home Services',
   'Moda Kitchen',
   'Axiom Tile LLC',
+  'Solo and small kitchen and bath remodelers are already running faster with DoneBuild.',
+  '5.0 from founding users',
   loginUrl,
   signupUrl,
   'How a job moves through DoneBuild',
@@ -16,6 +18,7 @@ const requiredMain = [
   'Deposit Wednesday',
   'Contractor eats <b>$1,800</b>',
   'Claim founding spot',
+  '42 of 100',
   '$54,701',
   'In jobs won · by morning',
   'Roughly three unsigned change orders a year',
@@ -33,6 +36,8 @@ const forbiddenMain = [
   '$79 flat. Unlimited everything. Locked for life.',
   '$99 to $399 a month',
   'style="margin-top:8px"',
+  'Is this just ChatGPT in a wrapper?',
+  '<em>Founding user</em>',
 ];
 const requiredPages = [
   'founders-note/index.html',

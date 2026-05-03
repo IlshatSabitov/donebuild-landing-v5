@@ -2323,8 +2323,10 @@ p { margin: 0; }
     border-radius: 12px; padding: 12px 14px;
     font-size: 12.5px; line-height: 1.55; color: rgba(255,255,255,0.92);
     text-align: left; margin-bottom: 10px;
-    max-height: 110px; overflow: hidden;
+    max-height: 118px; overflow-y: auto;
+    scrollbar-width: none;
   }
+  .m-transcript-card::-webkit-scrollbar { display: none; }
   .m-transcript-label {
     font-size: 9.5px; color: rgba(255,255,255,0.5);
     margin-bottom: 5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
@@ -3733,8 +3735,27 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   display: flex;
   flex-direction: column;
 }
+.whynot-card-head {
+  align-items: flex-start;
+  gap: 16px;
+}
+.whynot-card-name {
+  flex: 1;
+  min-width: 0;
+}
+.whynot-card-tag {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
 .whynot-card-body {
   flex: 1;
+  margin-bottom: 22px;
+}
+.whynot-card-foot {
+  width: 100%;
+  min-height: 44px;
+  margin-top: auto;
+  justify-content: flex-start;
 }
 .whynot-card-tag.is-neutral {
   background: var(--line-soft);
@@ -3743,64 +3764,6 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 }
 @media (max-width: 980px) {
   .whynot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-/* ─── H: Mobile hero phone size and spacing ───────────────────────────── */
-@media (max-width: 900px) {
-  .hero-mobile {
-    padding: 48px 0 52px;
-  }
-  .m-hero-inner {
-    max-width: 420px;
-    padding: 0 20px;
-  }
-  .m-hero-copy {
-    margin-bottom: 20px;
-  }
-  .m-hero-h1 {
-    font-size: clamp(26px, 7vw, 34px);
-    line-height: 1.15;
-    letter-spacing: -0.6px;
-  }
-  .m-hero-sub {
-    margin-bottom: 12px;
-  }
-  .m-hero-legend {
-    margin-bottom: 12px;
-  }
-  .m-hero-mute-row {
-    margin-top: 0;
-  }
-  .m-phone-wrap {
-    margin: 20px 0 0;
-  }
-  .m-phone {
-    width: 240px;
-    height: 510px;
-    max-height: none;
-    aspect-ratio: auto;
-    border-radius: 36px;
-    padding: 6px;
-  }
-  .m-phone-inner,
-  .m-screen {
-    border-radius: 30px;
-  }
-  .m-notch {
-    top: 6px;
-    width: 80px;
-    height: 18px;
-    border-radius: 0 0 16px 16px;
-  }
-  .m-progress-strip {
-    padding: 20px 0 0;
-  }
-  .m-prog-labels {
-    gap: 8px;
-    justify-content: center;
-    font-size: 10px;
-    letter-spacing: 0.08em;
-  }
 }
 
 @media (max-width: 760px) {
@@ -3835,17 +3798,6 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   }
   .whynot-grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 390px) {
-  .m-phone {
-    width: 232px;
-    height: 493px;
-  }
-  .m-prog-labels {
-    gap: 6px;
-    font-size: 9px;
   }
 }
 
@@ -4471,7 +4423,7 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 }
 .pricing-meter-track span {
   display: block;
-  width: 23%;
+  width: 42%;
   height: 100%;
   border-radius: inherit;
   background: var(--ok);

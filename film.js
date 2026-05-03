@@ -85,7 +85,43 @@
     { audioStart: 16.44, audioEnd: 17.46, text: "new sink and faucet," },
     { audioStart: 17.82, audioEnd: 19.12, text: "recessed lighting and paint." },
   ];
-  const FULL_TRANSCRIPT = PHRASES.map(p => p.text).join(" ");
+  const CLEANUP_TOKENS = [
+    { start: 0.62, end: 1.28, text: "Uh," },
+  ];
+
+  function buildTranscriptTokens(phrases) {
+    const tokens = [];
+    phrases.forEach((phrase) => {
+      const words = phrase.text.match(/\S+/g) || [];
+      const duration = Math.max(0.2, phrase.audioEnd - phrase.audioStart);
+      const slot = duration / Math.max(1, words.length);
+      words.forEach((word, index) => {
+        tokens.push({
+          start: phrase.audioStart + slot * index + Math.min(0.08, slot * 0.35),
+          text: word,
+        });
+      });
+    });
+    return tokens;
+  }
+
+  const TRANSCRIPT_TOKENS = buildTranscriptTokens(PHRASES);
+
+  function getLiveTranscript(audioElapsedS) {
+    const words = [];
+    CLEANUP_TOKENS.forEach((token) => {
+      if (audioElapsedS >= token.start && audioElapsedS < token.end) words.push(token.text);
+    });
+    TRANSCRIPT_TOKENS.forEach((token) => {
+      if (audioElapsedS >= token.start) words.push(token.text);
+    });
+    return words.join(" ");
+  }
+
+  function scrollTranscriptToEnd() {
+    if (!transcriptEl) return;
+    transcriptEl.scrollTop = transcriptEl.scrollHeight;
+  }
 
   // Convert audio-time seconds to film-time ms (within SPEAK stage)
   const audioSToFilmMs = (audioS) => SPEAK_START + (audioS / AUDIO_RATE) * 1000;
@@ -204,21 +240,7 @@
     // Compute audio time corresponding to film time
     const audioElapsedS = ((elapsedMs - SPEAK_START) / 1000) * AUDIO_RATE;
 
-    // Build text up to current audio time, phrase-by-phrase, with mid-phrase
-    // character interpolation for a typing feel.
-    let out = "";
-    for (const p of PHRASES) {
-      if (audioElapsedS >= p.audioEnd) {
-        out += (out ? " " : "") + p.text;
-      } else if (audioElapsedS >= p.audioStart) {
-        const frac = Math.min(1, Math.max(0, (audioElapsedS - p.audioStart) / Math.max(0.01, (p.audioEnd - p.audioStart))));
-        const chars = Math.floor(p.text.length * frac);
-        out += (out ? " " : "") + p.text.slice(0, chars);
-        break;
-      } else {
-        break;
-      }
-    }
+    const out = getLiveTranscript(audioElapsedS);
 
     if (!out) {
       transcriptEl.innerHTML =
@@ -229,6 +251,7 @@
         '<span class="speak-transcript-text"></span>' +
         '<span class="speak-cursor"></span>';
       transcriptEl.firstChild.textContent = out;
+      scrollTranscriptToEnd();
     }
   }
 
