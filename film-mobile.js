@@ -94,7 +94,7 @@
 
   const SUBHEADS = {
     setup:   "This is what 22 seconds with DoneBuild looks like.",
-    speak:   "You talk through the job at the table…",
+    speak:   "She's describing the job at the table…",
     clarify: "One small thing wasn't clear.",
     draft:   "Pulling from her saved prices.",
     reveal:  "Categorizing line items.",
