@@ -23,7 +23,9 @@ const requiredMain = [
   'Deposit Wednesday',
   'Estimate sent by magic link',
   'The client opens it on phone or laptop and signs without an app.',
-  'You eat <b>$1,800</b>',
+  "Okay, no problem. I'll take care of it.",
+  'co-r7-typing-bubble',
+  'You eat &lt;b&gt;$1,800&lt;/b&gt;. Silently. Because you can\'t afford to lose this customer.',
   'Watching the contractor cave',
   'Claim founding spot',
   '42 of 100',
@@ -52,6 +54,8 @@ const forbiddenMain = [
   'This is for you if',
   'Client signs on phone',
   'One tap. No app, no DocuSign, no password.',
+  'Okay, sure. No problem.',
+  'The client is right. The contractor has nothing in writing. You eat <b>$1,800</b>.',
   'Contractor eats <b>$1,800</b>',
 ];
 const requiredPages = [

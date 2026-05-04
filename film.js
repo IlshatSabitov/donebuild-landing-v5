@@ -71,6 +71,94 @@
   const progressLabels = $$(".progress-label");
   const replayBtn    = $("#replayBtn");
 
+  // ─── CHANGE-ORDER THREAD ANIMATION ────────────────────────────────────
+  function initChangeOrderThread() {
+    const sections = document.querySelectorAll(".section-co-thread-r7");
+    if (!sections.length) return;
+
+    const reduceMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    sections.forEach((section) => {
+      if (section.dataset.coR7Init === "true") return;
+      section.dataset.coR7Init = "true";
+
+      const typingRow = section.querySelector(".co-r7-typing-row");
+      const input = section.querySelector(".co-r7-input-copy");
+      const draftText = section.querySelector(".co-r7-draft-text");
+      const result = section.querySelector("[data-co-r7-result]");
+      const resultKicker = result && result.querySelector(".co-r7-result-kicker");
+      const resultCopy = result && result.querySelector(".co-r7-result-copy");
+
+      if (!typingRow || !input || !draftText || !result || !resultKicker || !resultCopy) return;
+      const rageText = input.dataset.rageText || "ARE YOU KIDDING ME I LITERALLY TEXTED YOU 3 WEEKS AGO";
+      const complyText = input.dataset.complyText || "Okay, no problem. I'll take care of it.";
+
+      function setDraft(text, mode) {
+        draftText.textContent = text;
+        input.classList.toggle("is-rage", mode === "rage");
+        input.classList.toggle("is-calm", mode === "calm");
+        input.classList.toggle("is-empty", !text);
+      }
+
+      function setResult(final) {
+        result.classList.toggle("is-final", final);
+        resultKicker.textContent = final ? result.dataset.finalKicker : result.dataset.watchKicker;
+        resultCopy.innerHTML = final ? result.dataset.finalCopy : result.dataset.watchCopy;
+      }
+
+      async function typeText(text, delayMs, mode) {
+        for (let i = 1; i <= text.length; i += 1) {
+          setDraft(text.slice(0, i), mode);
+          await wait(delayMs);
+        }
+      }
+
+      async function eraseText(delayMs) {
+        let current = draftText.textContent || "";
+        while (current.length > 0) {
+          current = current.slice(0, -1);
+          setDraft(current, "rage");
+          await wait(delayMs);
+        }
+      }
+
+      async function runCycle() {
+        if (reduceMotion) {
+          typingRow.classList.remove("is-visible");
+          setDraft(complyText, "calm");
+          setResult(true);
+          return;
+        }
+
+        while (true) {
+          setResult(false);
+          setDraft("", "");
+          typingRow.classList.remove("is-visible");
+
+          await wait(1500);
+          typingRow.classList.add("is-visible");
+          await wait(900);
+          typingRow.classList.remove("is-visible");
+
+          await typeText(rageText, 50, "rage");
+          await wait(1500);
+          await eraseText(28);
+          await wait(600);
+          await typeText(complyText, 55, "calm");
+          await wait(1800);
+          setResult(true);
+          await wait(4500);
+        }
+      }
+
+      runCycle();
+    });
+  }
+
+  initChangeOrderThread();
+
   // ─── DATA ──────────────────────────────────────────────────────────────
   // Tommy's actual transcript phrases with timestamps in audio time (s).
   // Projected onto SPEAK 20s window at audio rate ~0.985x (near-natural).

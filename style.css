@@ -5152,6 +5152,39 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   border: 0.5px solid #F4A29C;
   font-weight: 600;
 }
+.co-r7-typing-row {
+  max-height: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 180ms ease, margin-bottom 180ms ease, opacity 180ms ease;
+}
+.co-r7-typing-row.is-visible {
+  max-height: 42px;
+  margin-bottom: 4px;
+  opacity: 1;
+}
+.co-r7-typing-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+  border-radius: 18px 18px 4px 18px;
+  background: #26252A;
+}
+.co-r7-typing-bubble span {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: #8E8E93;
+  animation: coR7TypingDot 1.4s infinite ease-in-out;
+}
+.co-r7-typing-bubble span:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.co-r7-typing-bubble span:nth-child(3) {
+  animation-delay: 0.36s;
+}
 .co-r7-input-bar {
   display: flex;
   align-items: flex-end;
@@ -5194,52 +5227,24 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   font-weight: 650;
   line-height: 1.22;
 }
-.co-r7-input-copy::after {
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 12px;
-  display: block;
+.co-r7-input-copy.is-rage {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.co-r7-input-copy.is-calm {
+  font-weight: 500;
+}
+.co-r7-draft-text {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.co-r7-draft-cursor {
+  display: inline-block;
   width: 1.5px;
   height: 13px;
+  margin-left: 2px;
   background: #fff;
-  animation: coR7Blink 1s steps(1) infinite, coR7CursorTrack 15.6s linear infinite;
-}
-.co-r7-rage,
-.co-r7-comply {
-  position: absolute;
-  top: 7px;
-  left: 12px;
-  right: 12px;
-  opacity: 0;
-}
-.co-r7-rage {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1px;
-  animation: coR7RageShell 15.6s linear infinite;
-}
-.co-r7-rage span,
-.co-r7-comply {
-  display: block;
-  width: 0;
-  max-width: max-content;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.co-r7-rage span:nth-child(1) {
-  animation: coR7RageLine1 15.6s steps(20, end) infinite;
-}
-.co-r7-rage span:nth-child(2) {
-  animation: coR7RageLine2 15.6s steps(22, end) infinite;
-}
-.co-r7-rage span:nth-child(3) {
-  animation: coR7RageLine3 15.6s steps(9, end) infinite;
-}
-.co-r7-comply {
-  font-weight: 500;
-  animation: coR7ComplyText 15.6s steps(24, end) infinite;
+  vertical-align: -2px;
+  animation: coR7Blink 1s steps(1) infinite;
 }
 .co-r7-home {
   width: 110px;
@@ -5253,38 +5258,15 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
-@keyframes coR7CursorTrack {
-  0%, 12%, 61%, 64%, 100% { transform: translate(0, 0); opacity: 1; }
-  22%, 28% { transform: translate(118px, 0); }
-  38%, 48% { transform: translate(129px, 15px); }
-  52%, 58% { transform: translate(54px, 30px); }
-  78%, 94% { transform: translate(124px, 0); }
-  96%, 100% { opacity: 0; }
-}
-@keyframes coR7RageShell {
-  0%, 11%, 61%, 100% { opacity: 0; }
-  12%, 58% { opacity: 1; }
-}
-@keyframes coR7RageLine1 {
-  0%, 12% { width: 0; }
-  24%, 50% { width: 20ch; }
-  60%, 100% { width: 0; }
-}
-@keyframes coR7RageLine2 {
-  0%, 24% { width: 0; }
-  38%, 52% { width: 22ch; }
-  60%, 100% { width: 0; }
-}
-@keyframes coR7RageLine3 {
-  0%, 38% { width: 0; }
-  48%, 54% { width: 9ch; }
-  60%, 100% { width: 0; }
-}
-@keyframes coR7ComplyText {
-  0%, 64%, 100% { width: 0; opacity: 0; }
-  65% { width: 0; opacity: 1; }
-  78%, 94% { width: 24ch; opacity: 1; }
-  96% { width: 24ch; opacity: 0; }
+@keyframes coR7TypingDot {
+  0%, 60%, 100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 .co-r7-result {
   display: flex;
@@ -5298,6 +5280,10 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 }
 .co-r7-result.is-bad {
   border: 1px solid #F4A29C;
+}
+.co-r7-result.is-final {
+  box-shadow: 0 0 0 1px rgba(244, 162, 156, 0.12),
+              0 18px 42px rgba(0, 0, 0, 0.22);
 }
 .co-r7-result.is-good {
   max-width: 380px;
@@ -5474,20 +5460,13 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .co-r7-rage,
-  .co-r7-comply,
-  .co-r7-input-copy::after,
+  .co-r7-draft-cursor,
+  .co-r7-typing-bubble span,
   .co-r7-label.is-good span {
     animation: none;
   }
-  .co-r7-rage {
-    opacity: 1;
-  }
-  .co-r7-rage span {
-    width: auto;
-  }
-  .co-r7-comply,
-  .co-r7-input-copy::after {
+  .co-r7-typing-row,
+  .co-r7-draft-cursor {
     display: none;
   }
 }
