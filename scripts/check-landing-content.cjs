@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const signupUrl = 'https://app.donebuild.com/subscribe?plan=pilot&channel=landing_v4';
+const signupUrl = 'https://app.donebuild.com/auth/sign-up?redirect_url=/onboarding';
 const loginUrl = 'https://app.donebuild.com/auth/sign-in?redirect_url=/dashboard';
 const files = ['body.html', 'index.html'];
 const requiredMain = [
@@ -27,7 +27,7 @@ const requiredMain = [
   'co-r7-typing-bubble',
   'You eat &lt;b&gt;$1,800&lt;/b&gt;. Silently. Because you can\'t afford to lose this customer.',
   'Watching the contractor cave',
-  'Claim founding spot',
+  'Start free - no card required',
   '42 of 100',
   '$54,701',
   'In jobs won · by morning',
@@ -57,6 +57,9 @@ const forbiddenMain = [
   'Okay, sure. No problem.',
   'The client is right. The contractor has nothing in writing. You eat <b>$1,800</b>.',
   'Contractor eats <b>$1,800</b>',
+  'https://app.donebuild.com/subscribe?plan=pilot&channel=landing_v4',
+  '14-day free trial',
+  '14-day trial',
 ];
 const requiredPages = [
   'founders-note/index.html',

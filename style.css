@@ -4516,7 +4516,12 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
 .pricing-save-row span {
   color: var(--ink-4);
   font-size: 12px;
-  text-decoration: line-through;
+  text-decoration: none;
+}
+.pricing-save-row .pricing-save-note {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-style: normal;
 }
 .pricing-save-row b {
   padding: 3px 8px;
