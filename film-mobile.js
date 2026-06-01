@@ -146,12 +146,12 @@
   };
 
   const SUBHEADS = {
-    setup:   "This is what 22 seconds with DoneBuild looks like.",
-    speak:   "",
-    clarify: "One small thing wasn't clear.",
-    draft:   "Pulling from your saved prices.",
-    reveal:  "Categorizing line items.",
-    linger:  "Done. $43,199. Ready to send.",
+    setup:   "Speak the job. Send a polished estimate.",
+    speak:   "Talk it through like a normal walkthrough.",
+    clarify: "Pick the details once.",
+    draft:   "DoneBuild builds the draft.",
+    reveal:  "Review, approve, and send.",
+    linger:  "Ready to send.",
   };
 
   // Reveal cascade values (cumulative subtotals; * 1.0888 multiplier matches JSX)
