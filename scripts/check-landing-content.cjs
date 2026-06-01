@@ -28,7 +28,6 @@ const requiredMain = [
   'You eat &lt;b&gt;$1,800&lt;/b&gt;. Silently. Because you can\'t afford to lose this customer.',
   'Watching the contractor cave',
   'Start free - no card required',
-  '42 of 100',
   '$54,701',
   'In jobs won · by morning',
   'Roughly three unsigned change orders a year',
@@ -60,6 +59,8 @@ const forbiddenMain = [
   'https://app.donebuild.com/subscribe?plan=pilot&channel=landing_v4',
   '14-day free trial',
   '14-day trial',
+  '42 of 100',
+  'Slots filled',
 ];
 const requiredPages = [
   'founders-note/index.html',
