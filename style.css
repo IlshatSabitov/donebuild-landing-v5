@@ -3716,6 +3716,58 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   letter-spacing: 0.06em;
   line-height: 1;
 }
+.video-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1040px;
+  margin: 0 auto 28px;
+}
+.video-testimonial-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(40, 30, 18, 0.07),
+              0 2px 8px rgba(40, 30, 18, 0.03);
+}
+.video-testimonial-media {
+  aspect-ratio: 9 / 16;
+  background: #0B0E12;
+}
+.video-testimonial-player {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #0B0E12;
+  object-fit: cover;
+}
+.video-testimonial-copy {
+  padding: 16px 18px 18px;
+}
+.video-testimonial-copy strong {
+  display: block;
+  color: var(--ink-1);
+  font-size: 18px;
+  line-height: 1.1;
+  font-weight: 850;
+}
+.video-testimonial-copy span {
+  display: block;
+  margin-top: 5px;
+  color: var(--ok-ink);
+  font-size: 11px;
+  line-height: 1.25;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.video-testimonial-copy p {
+  margin: 10px 0 0;
+  color: var(--ink-3);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
 .section-reviews-v3 .review-grid {
   gap: 20px;
   max-width: 1040px;
@@ -3803,6 +3855,35 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+@media (max-width: 860px) {
+  .section-reviews-v3 .section-head {
+    margin-bottom: 34px;
+  }
+  .video-testimonial-grid {
+    display: flex;
+    gap: 14px;
+    max-width: none;
+    margin: 0 0 26px;
+    padding: 0 0 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .video-testimonial-card {
+    flex: 0 0 min(78vw, 320px);
+    scroll-snap-align: center;
+  }
+  .video-testimonial-copy {
+    padding: 15px 16px 17px;
+  }
+  .video-testimonial-copy strong {
+    font-size: 17px;
+  }
+  .video-testimonial-copy p {
+    font-size: 13px;
+  }
 }
 
 /* ─── G: Honest comparison 3x2 grid ───────────────────────────────────── */
