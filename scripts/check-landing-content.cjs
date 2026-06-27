@@ -16,6 +16,7 @@ const requiredMain = [
   'chris-donebuild-testimonial.mp4',
   'caleb-donebuild-testimonial.mp4',
   'preload="none"',
+  'exclusivePlaybackBound',
   'Faster estimate turnaround',
   'More professional workflow',
   'Simple enough for small crews',

@@ -1295,6 +1295,28 @@
         </div>
       </article>
     </div>
+    <script>
+      (() => {
+        const bindExclusiveTestimonialPlayback = () => {
+          const videos = document.querySelectorAll(".video-testimonial-player");
+          videos.forEach((video) => {
+            if (video.dataset.exclusivePlaybackBound === "true") return;
+            video.dataset.exclusivePlaybackBound = "true";
+            video.addEventListener("play", () => {
+              videos.forEach((otherVideo) => {
+                if (otherVideo !== video && !otherVideo.paused) otherVideo.pause();
+              });
+            });
+          });
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", bindExclusiveTestimonialPlayback, { once: true });
+        } else {
+          bindExclusiveTestimonialPlayback();
+        }
+      })();
+    </script>
     <div class="review-grid">
       <article class="review-card review-card-featured">
         <div class="review-metric-head">

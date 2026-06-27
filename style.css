@@ -3742,6 +3742,17 @@ body > div:first-child:not(#db-shell):not([class*="hero"]):not([class*="section"
   background: #0B0E12;
   object-fit: cover;
 }
+.video-testimonial-player:fullscreen {
+  object-fit: contain;
+  background: #000;
+}
+.video-testimonial-player:-webkit-full-screen {
+  object-fit: contain;
+  background: #000;
+}
+.video-testimonial-player::backdrop {
+  background: #000;
+}
 .video-testimonial-copy {
   padding: 16px 18px 18px;
 }
